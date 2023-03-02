@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/IndexStyle.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./propper/popper.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+    <%- include layout/NavBar %>
+        <div class="container-fluid text-center">
+            <h1 style="margin-top: 3%; font-weight: bold; font-size: 50px;">ยินดีต้อนรับสู่ คัชชู ช็อป</h1>
+            <div class="row" style="margin-top: 3%; margin-bottom: 3%;">
+                <div class="col-6" style="padding-left: 15%; padding-right: 0;">
+                    <div class="bg-shoe-circle">
+                        <img src="/images/shoe_home.png" style="width: 100%; margin-top: 20%;">
+                    </div>
+                </div>
+                <% if (userID) { %>
+                    <div class="col-6">
+                        <div class="row">
+                            <button style="margin-top: 7%;" class="btn-index" onclick="window.location.href='/user/history'">ประวัติการสั่งซื้อ</button>
+                            <button class="btn-index" onclick="window.location.href='/user/status'">สถานะการสั่งซื้อ</button>
+                            <button class="btn-index" onclick="window.location.href='/user/yourDesign'">รองเท้าที่เคยออกแบบ</button>
+                        </div>
+                    </div>
+                    <% } else {%>
+                        <div class="col-6 text-center">
+                            <h1 class="txt-index" style="padding-left: 5%; padding-right: 15%;">"ออกแบบรองเท้าในฝันของคุณ"</h1>
+                        </div>
+                    <% } %>
+            </div>
+        </div>
+    <%- include Layout/Footer %>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/LoginStyle.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./propper/popper.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container text-center">
+        <img src="/images/logo.png" style="width: 300px;">
+        <form style="margin-left: 35%; margin-right: 35%;" method="post" action="/login">
+            <div class="form-group text-start">
+              <label for="email">อีเมลแอดเดรส</label>
+              <input type="email" class="form-control input-box" id="email" name="email" placeholder="กรอกอีเมลล์ของคุณ" required>
+            </div>
+            <br>
+            <div class="form-group text-start">
+              <label for="password">รหัสผ่าน</label>
+              <input type="password" class="form-control input-box" id="password" name="password" placeholder="กรอกรหัสผ่านของคุณ" required>
+            </div>
+            <br>
+            <a href="#">ลืมรหัสผ่าน?</a>
+            <br><br>
+            <button type="submit" class="btn w-100" style="background-color: #414141; color: white; border-radius: 50px;">ล็อคอิน</button>
+            <br><br>
+            <div class="separator">หรือ</div>
+            <br><br>
+            <button type="button" class="btn w-100" style="background-color: white; border: #414141 1px solid; color: #414141; border-radius: 50px;" onclick="window.location.href='/register'">ลงทะเบียน</button>
+        </form>
+    </div>
+</body>
+
+</html>

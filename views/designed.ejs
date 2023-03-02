@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/propper/popper.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+</head>
+
+<body>
+    <%- include layout/NavBar %>
+        <div class="text-center mt-4">
+            <h1>รองเท้าของคุณ</h1>
+        </div>
+        <div class="row mt-4" style="margin-bottom: 6%;">
+            <div class="col-4 text-center">
+                <img src="/images/shoe_home.png" style="width: 80%;">
+                <h3 class="mt-2">ชื่อรุ่น</h3>
+                <p>ราคา</p>
+            </div>
+            <div class="col-4 text-center">
+                <img src="/images/shoe_home.png" style="width: 80%;">
+                <h3 class="mt-2">ชื่อรุ่น</h3>
+                <p>ราคา</p>
+            </div>
+        </div>
+        <%- include Layout/Footer %>
+</body>
+
+</html>

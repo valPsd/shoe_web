@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/LoginStyle.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./propper/popper.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container text-center" style="margin-bottom: 2%;">
+        <img src="/images/logo.png" style="width: 300px;">
+        <form style="margin-left: 35%; margin-right: 35%;" method="post" action="/register">
+            <div class="form-group text-start">
+                <label for="name">ชื่อ-นามสกุล</label>
+                <input type="text" class="form-control input-box" id="name" name="name"
+                    placeholder="กรุณากรอกชื่อ-นามสกุล" required>
+            </div>
+            <br>
+            <div class="form-group text-start">
+                <label for="email">อีเมลแอดเดรส</label>
+                <input type="email" class="form-control input-box" id="email" name="email"
+                    placeholder="กรอกอีเมลแอดเดรส" required>
+            </div>
+            <br>
+            <div class="form-group text-start">
+                <label for="birthDate">วัน/เดือน/ปีเกิด</label>
+                <input type="date" class="form-control input-box" id="birthDate" name="birthDate" required>
+            </div>
+            <br>
+            <div class="form-group text-start">
+                <label for="address">ที่อยู่สำหรับการจัดส่งสินค้า</label>
+                <textarea cols="40" rows="5" class="form-control input-box address-box" id="address" name="address" maxlength="100" placeholder="กรุณากรอกที่อยู่" required></textarea>
+            </div>
+            <br>
+            <div class="form-group text-start">
+                <label for="password">รหัสผ่าน</label>
+                <input type="password" class="form-control input-box" id="password" name="password" placeholder="กรุณากรอกรหัสผ่าน" required>
+            </div>
+            <br>
+            <div class="form-group text-start">
+                <label for="conPass">ยืนยันรหัสผ่าน</label>
+                <input type="password" class="form-control input-box" id="conPass" name="conPass" placeholder="กรุณากรอกยืนยันรหัสผ่าน" required>
+            </div>
+            <br><br>
+            <button type="submit" class="btn w-100"
+                style="background-color: #414141; color: white; border-radius: 50px;">ลงทะเบียน</button>
+        </form>
+    </div>
+</body>
+
+</html>

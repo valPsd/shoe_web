@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/propper/popper.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+</head>
+
+<body>
+    <%- include layout/NavBar %>
+        <div class="container">
+            <div class="text-center mt-4">
+                <h1>ประวัติการสั่งซื้อ</h1>
+            </div>
+            <table class="table mt-4 mb-4">
+                <thead>
+                    <tr>
+                        <th scope="col">ชื่อสินค้า</th>
+                        <th scope="col">ราคาทั้งหมด</th>
+                        <th scope="col">วันที่สั่งออเดอร์</th>
+                        <th scope="col">สถานะ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ชื่อสินค้า</td>
+                        <td>6000฿</td>
+                        <td>12/8/2023</td>
+                        <td>กำลังรอการจัดส่ง</td>
+                    </tr>
+                    <tr>
+                        <td>ชื่อสินค้า</td>
+                        <td>6000฿</td>
+                        <td>12/8/2023</td>
+                        <td>เสร็จสิ้น</td>
+                    </tr>
+                    <tr>
+                        <td>ชื่อสินค้า</td>
+                        <td>6000฿</td>
+                        <td>12/8/2023</td>
+                        <td>เสร็จสิ้น</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <%- include Layout/Footer %>
+</body>
+
+</html>

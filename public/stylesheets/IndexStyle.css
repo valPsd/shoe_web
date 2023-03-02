@@ -1,0 +1,21 @@
+.bg-shoe-circle {
+    height: 400px;
+    width: 400px;
+    background-color: #f0e8e7;
+    border-radius: 50%;
+}
+
+.btn-index{
+    background-color: #dadde9;
+    border-radius: 30px;
+    border: none;
+    width: 400px !important;
+    height: 70px !important;
+    margin-bottom: 5%;
+    font-size: 30px;
+}
+
+.txt-index{
+    margin-top: 20%;
+    font-size: 60px;
+}
