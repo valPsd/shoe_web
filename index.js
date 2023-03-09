@@ -10,6 +10,7 @@ let session = require('express-session')
 
 const indexRouter = require('./routes/auth');
 const userRouter = require('./routes/user');
+const shoeRouter = require('./routes/shoe');
 // const restuarantRouter = require('./routes/restuarant');
 // const riderRouter = require('./routes/riderAdmin');
 // const adminRouter = require('./routes/restuarantAdmin');
@@ -44,6 +45,7 @@ app.use(flash())
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/shoe', shoeRouter);
 // app.use('/restuarants', restuarantRouter);
 // app.use('/rider', riderRouter);
 // app.use('/restuarantsAdmin', adminRouter);

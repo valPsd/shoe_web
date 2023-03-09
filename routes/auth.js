@@ -15,20 +15,7 @@ router.get('/register', function (req, res, next) {
    res.render('register', { title: 'Register' });
 });
 
-router.get('/shoes/:shoeType', function (req, res, next) {
-   const shoeType = req.params.shoeType;
-   let type = "";
-   if (shoeType == "men") {
-      type = "รองเท้าผู้ชาย"
-   }
-   else if (shoeType == "women") {
-      type = "รองเท้าผู้หญิง"
-   }
-   else {
-      type = "รองเท้าเด็ก"
-   }
-   res.render('chooseShoe', { title: type, userID: userID });
-});
+
 
 router.get('/logout', function (req, res, next) {
    req.session.user = '';
