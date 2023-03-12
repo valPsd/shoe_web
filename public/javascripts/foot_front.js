@@ -65,7 +65,7 @@ function leather_colors(colors) {
     img.style.backgroundColor = '#' + colors
 }
 function butNext() {
-    value.replace('#', '')
+    value = value.replace('#', '')
     if (type == '' || value == '') {
         alert('กรุณาเลือกวัสดุและสีของรองเท้า')
     }

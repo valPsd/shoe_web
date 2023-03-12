@@ -70,6 +70,6 @@ function butNext() {
         alert('กรุณาเลือกวัสดุและสีของรองเท้า')
     }
     else {
-        window.location.href = '/shoe/save/shoemen/style1/pull_tap/' + type + '/' + value
+        window.location.href = '/shoe/save/shoemen/style1/bottom/' + type + '/' + value
     }
 }
