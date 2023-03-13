@@ -15,6 +15,11 @@ router.get('/register', function (req, res, next) {
    res.render('register', { title: 'Register' });
 });
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 271ee104a46e9e10f5de6590087f5a08aeec3f4f
 router.get('/logout', function (req, res, next) {
    req.session.user = '';
    userID = '';

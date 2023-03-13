@@ -31,4 +31,8 @@ router.get('/shoes/:shoeType', function (req, res, next) {
    }
    res.render('chooseShoe', { title: type, userID: userID });
 });
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> 271ee104a46e9e10f5de6590087f5a08aeec3f4f
