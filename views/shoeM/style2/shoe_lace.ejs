@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/propper/popper.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link href="/stylesheets/shoe_lace.css" rel="stylesheet">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <%- include('../../Layout/NavBar') %>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6 img">
+                    <img id="shoe_lace" src="/images/shoe1/png/shoe_lace.png" alt="shoe">
+                </div>
+
+                <div class="col-6" style="margin-top: 13%;">
+                    <div class="text-center" style="margin: 2%;">
+                        <button class="btn text" id="color" onclick="choose_color()">เลือกเป็นสี</button>
+                        <button class="btn text" id="leather" onclick="choose_leather('<%- leather %>')">เลือกเป็นหนัง</button>
+                    </div>
+                    <div>
+                        <input id="changeColor" style="display: none; width: 250px; margin-left: 31%;" type="text"
+                            class="form-control jscolor {onFineChange:'changeColor(this)'} butt1"
+                            placeholder="changeColor" aria-label="changeColor" aria-describedby="addon-wrapping"
+                            value="DBED64">
+                    </div>
+
+                    <div id="leatherColor" class="row" style="margin-left: 70px; display: none;">
+                        <div class="col"><button class="leatherColor" id="black_leather"
+                                onclick="leather_colors('000000')"></button>
+                        </div>
+                        <div class="col"><button class="leatherColor" id="chocolate_leather"
+                                onclick="leather_colors('3F2C25')"></button>
+                        </div>
+                        <div class="col"><button class="leatherColor" id="darkbrown_leather"
+                                onclick="leather_colors('572D1D')"></button>
+                        </div>
+                        <div class="col"><button class="leatherColor" id="brown_leather"
+                                onclick="leather_colors('B16217')"></button>
+                        </div>
+                        <div class="col"><button class="leatherColor" id="lightbrown_leather"
+                                onclick="leather_colors('D79443')"></button></div>
+                    </div>
+
+                    <div class="text-end" style="margin-top: 10%;">
+                        <button class="btn btn-primary" onclick="butNext()">ถัดไป</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <DIV class="space"></DIV> -->
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.js"></script>
+        <script src="/javascripts/shoe_lace.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+            integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+            crossorigin="anonymous"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.js'></script>
+
+        <!-- <script>
+            function choose_leather() {
+                type = '<%- leather %>'
+                console.log(type);
+                // img.style.backgroundColor = 'white';
+                img.style.backgroundImage = "url('/images/" + type + ".jpg')"
+                document.getElementById('changeColor').style.display = 'none'
+                document.getElementById('leatherColor').style.display = 'flex'
+            }
+        </script> -->
+        <%- include('../../Layout/Footer') %>
+</body>
+
+</html>

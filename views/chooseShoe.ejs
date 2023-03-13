@@ -17,14 +17,15 @@
                 <%= title %>
             </h1>
         </div>
-        <% if (title=="รองเท้าผู้ชาย") {%>
+        <% if (title=="รองเท้าผู้ชาย" ) {%>
             <div class="row mt-4" style="margin-bottom: 6%;">
-                <div class="col-4 text-center">
+                <a href=""></a>
+                <div class="col-4 text-center" onclick="chooseShoe('shoemen','style1')">
                     <img src="/images/men/shoe1.png" style="width: 80%;">
                     <h3 class="mt-2">ชื่อรุ่น</h3>
                     <p>ราคา</p>
                 </div>
-                <div class="col-4 text-center">
+                <div class="col-4 text-center" onclick="chooseShoe('shoemen','style2')">
                     <img src="/images/men/shoe2.png" style="width: 80%;">
                     <h3 class="mt-2">ชื่อรุ่น</h3>
                     <p>ราคา</p>
@@ -32,12 +33,12 @@
             </div>
             <%} else if (title=="รองเท้าผู้หญิง" ) {%>
                 <div class="row mt-4" style="margin-bottom: 6%;">
-                    <div class="col-4 text-center">
+                    <div class="col-4 text-center" onclick="chooseShoe('shoewomem', 'style1')">
                         <img src="/images/women/shoe1.png" style="width: 80%;">
                         <h3 class="mt-2">ชื่อรุ่น</h3>
                         <p>ราคา</p>
                     </div>
-                    <div class="col-4 text-center">
+                    <div class="col-4 text-center" onclick="chooseShoe('shoewomen', 'style2')">
                         <img src="/images/women/shoe2.png" style="width: 80%;">
                         <h3 class="mt-2">ชื่อรุ่น</h3>
                         <p>ราคา</p>
@@ -45,7 +46,7 @@
                 </div>
                 <% } else { %>
                     <div class="row mt-4" style="margin-bottom: 6%;">
-                        <div class="col-4 text-center">
+                        <div class="col-4 text-center" onclick="chooseShoe('shoechilden', 'style')">
                             <img src="/images/kids/shoe1.png" style="width: 80%;">
                             <h3 class="mt-2">ชื่อรุ่น</h3>
                             <p>ราคา</p>
@@ -53,6 +54,8 @@
                     </div>
                     <% } %>
                         <%- include Layout/Footer %>
+
+                            <script src="/javascripts/choose_shoe.js"></script> 
 </body>
 
 </html>
