@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/propper/popper.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+
+    <style>
+        .addBtn:hover{
+            background-color: lightgray;
+        }
+        
+        .addBtn{
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include ../layout/NavBarAdmin %>
+        <div class="text-end mt-4" style="padding-right: 3%;">
+            <button class="addBtn" type="button" onclick="location.href = '/admin/addProduct'"
+                style="border: black 1px solid; border-radius: 30px; padding: 10px; font-size: 20px; font-weight: bold;">+
+                เพิ่มสินค้า</button>
+        </div>
+        <div class="row mt-4" style="margin-bottom: 6%;">
+            <div class="col-4 text-center">
+                <img src="/images/men/shoe1.png" style="width: 80%;">
+                <h3 class="mt-2">ชื่อรุ่น</h3>
+                <p>ราคา</p>
+            </div>
+            <div class="col-4 text-center">
+                <img src="/images/men/shoe2.png" style="width: 80%;">
+                <h3 class="mt-2">ชื่อรุ่น</h3>
+                <p>ราคา</p>
+            </div>
+        </div>
+        <%- include ../Layout/Footer %>
+</body>
+
+</html>
