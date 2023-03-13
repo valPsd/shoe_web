@@ -183,7 +183,7 @@ router.get("/shoemen/style1/tongue2", function (req, res, next) {
 
 //shoe men style2
 router.get(
-    "/save/shoemen/style1/:partname/:type/:value",
+    "/save/shoemen/style2/:partname/:type/:value",
     function (req, res, next) {
       const { partname, value, type } = req.params;
       // console.log(partname, value);
@@ -337,6 +337,6 @@ router.get("/save/choose_leather/:leather", function (req, res, next) {
   const shoe = session.detailShoe.shoe;
   const style = session.detailShoe.style;
   console.log(session);
-  res.redirect(`/shoe/${shoe}/${style}/tongue2`);
+  res.redirect(`/shoe/${shoe}/${style}/foot_front`);
 });
 module.exports = router;
