@@ -18,6 +18,7 @@ router.get('/yourDesign', function (req, res, next) {
 });
 
 router.get('/shoes/:shoeType', function (req, res, next) {
+   userID = req.session.user;
    const shoeType = req.params.shoeType;
    let type = "";
    if (shoeType == "men") {
@@ -31,4 +32,29 @@ router.get('/shoes/:shoeType', function (req, res, next) {
    }
    res.render('chooseShoe', { title: type, userID: userID });
 });
+
+router.get('/cart', function (req, res, next) {
+   userID = req.session.user;
+   res.render('cart', { title: 'Your Cart', userID: userID });
+});
+
+router.post('/cart', function (req, res, next) {
+   const {size} = req.body;
+   userID = req.session.user;
+   res.render('cart', { title: 'Your Cart', userID: userID });
+});
+
+router.get('/checkout', function (req, res, next) {
+   // const {size} = req.body;
+   userID = req.session.user;
+   res.render('checkout', { title: 'Checkout', userID: userID });
+});
+
+router.get('/payment', function (req, res, next) {
+   // const {size} = req.body;
+   const msg = 'ทำการสั่งซื้อสำเร็จ สามารถเช็คสถานะการจัดส่งได้ที่หน้าหลัก';
+   const path = ' ';
+   res.redirect('/success/' + msg + '/' + path);
+});
+
 module.exports = router;

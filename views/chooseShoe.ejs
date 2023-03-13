@@ -20,12 +20,12 @@
         <% if (title=="รองเท้าผู้ชาย" ) {%>
             <div class="row mt-4" style="margin-bottom: 6%;">
                 <a href=""></a>
-                <div class="col-4 text-center" onclick="chooseShoe('shoemen','style1')">
+                <div class="col-4 text-center" onclick="chooseShoe('shoemen','style1', '<%= userID %>')">
                     <img src="/images/men/shoe1.png" style="width: 80%;">
                     <h3 class="mt-2">ชื่อรุ่น</h3>
                     <p>ราคา</p>
                 </div>
-                <div class="col-4 text-center" onclick="chooseShoe('shoemen','style2')">
+                <div class="col-4 text-center" onclick="chooseShoe('shoemen','style2', '<%= userID %>')">
                     <img src="/images/men/shoe2.png" style="width: 80%;">
                     <h3 class="mt-2">ชื่อรุ่น</h3>
                     <p>ราคา</p>
@@ -33,12 +33,12 @@
             </div>
             <%} else if (title=="รองเท้าผู้หญิง" ) {%>
                 <div class="row mt-4" style="margin-bottom: 6%;">
-                    <div class="col-4 text-center" onclick="chooseShoe('shoewomem', 'style1')">
+                    <div class="col-4 text-center" onclick="chooseShoe('shoewomem', 'style1', '<%= userID %>')">
                         <img src="/images/women/shoe1.png" style="width: 80%;">
                         <h3 class="mt-2">ชื่อรุ่น</h3>
                         <p>ราคา</p>
                     </div>
-                    <div class="col-4 text-center" onclick="chooseShoe('shoewomen', 'style2')">
+                    <div class="col-4 text-center" onclick="chooseShoe('shoewomen', 'style2', '<%= userID %>')">
                         <img src="/images/women/shoe2.png" style="width: 80%;">
                         <h3 class="mt-2">ชื่อรุ่น</h3>
                         <p>ราคา</p>
@@ -46,7 +46,7 @@
                 </div>
                 <% } else { %>
                     <div class="row mt-4" style="margin-bottom: 6%;">
-                        <div class="col-4 text-center" onclick="chooseShoe('shoechilden', 'style')">
+                        <div class="col-4 text-center" onclick="chooseShoe('shoechilden', 'style', '<%= userID %>')">
                             <img src="/images/kids/shoe1.png" style="width: 80%;">
                             <h3 class="mt-2">ชื่อรุ่น</h3>
                             <p>ราคา</p>

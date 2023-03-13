@@ -330,6 +330,11 @@ router.get("/choose_leather", function (req, res, next) {
   res.render("choose_leather", { title: "Choose Leather", userID: userID });
 });
 
+router.get("/preview", function (req, res, next) {
+  userID = req.session.user;
+  res.render("preview", { title: "Preview Product", userID: userID });
+});
+
 router.get("/save/choose_leather/:leather", function (req, res, next) {
   const { leather } = req.params;
   let session = req.session;
