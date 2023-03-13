@@ -65,11 +65,11 @@ function leather_colors(colors) {
     img.style.backgroundColor = '#' + colors
 }
 function butNext() {
-    value.replace('#', '')
+    value = value.replace('#', '')
     if (type == '' || value == '') {
         alert('กรุณาเลือกวัสดุและสีของรองเท้า')
     }
     else {
-        window.location.href = '/shoe/save/shoemen/style1/tongue/' + type + '/' + value
+        window.location.href = '/shoe/save/shoemen/style2/tongue/' + type + '/' + value
     }
 }

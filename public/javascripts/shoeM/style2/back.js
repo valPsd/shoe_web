@@ -70,6 +70,6 @@ function butNext() {
         alert('กรุณาเลือกวัสดุและสีของรองเท้า')
     }
     else {
-        window.location.href = '/shoe/save/shoemen/style2/attached_heel/' + type + '/' + value
+        window.location.href = '/shoe/save/shoemen/style2/back/' + type + '/' + value
     }
 }
