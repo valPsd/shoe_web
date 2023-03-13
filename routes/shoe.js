@@ -340,3 +340,4 @@ router.get("/save/choose_leather/:leather", function (req, res, next) {
   res.redirect(`/shoe/${shoe}/${style}/tongue2`);
 });
 module.exports = router;
+shoe
