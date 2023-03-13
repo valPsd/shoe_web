@@ -65,19 +65,11 @@ function leather_colors(colors) {
     img.style.backgroundColor = '#' + colors
 }
 function butNext() {
-<<<<<<< HEAD
-    value.replace('#', '')
-=======
     value = value.replace('#', '')
->>>>>>> 271ee104a46e9e10f5de6590087f5a08aeec3f4f
     if (type == '' || value == '') {
         alert('กรุณาเลือกวัสดุและสีของรองเท้า')
     }
     else {
-<<<<<<< HEAD
-        window.location.href = '/shoe/save/shoemen/style1/bottom/' + type + '/' + value
-=======
         window.location.href = '/shoe/save/shoemen/style2/bottom/' + type + '/' + value
->>>>>>> 271ee104a46e9e10f5de6590087f5a08aeec3f4f
     }
 }
