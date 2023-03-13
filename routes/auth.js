@@ -42,7 +42,6 @@ router.post('/register', function (req, res) {
 })
 
 router.get('/success/:msg/:path', async (req, res, next) => {
-   console.log("Welcome");
    const { msg, path } = req.params
    res.render('success', { success: msg, path: path });
 })

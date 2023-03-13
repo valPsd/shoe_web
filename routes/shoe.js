@@ -60,11 +60,7 @@ router.get(
     }
     // 12
     else if (partname === "tongue2") {
-<<<<<<< HEAD
-      res.redirect("shoe/shoemen/style1/shoe_lace");
-=======
       res.redirect("/shoe/shoemen/style1/shoe_lace");
->>>>>>> 271ee104a46e9e10f5de6590087f5a08aeec3f4f
     }
   }
 );
@@ -174,8 +170,6 @@ router.get("/shoemen/style1/tongue", function (req, res, next) {
     leather: leather,
   });
 });
-<<<<<<< HEAD
-=======
 router.get("/shoemen/style1/tongue2", function (req, res, next) {
     const leather = req.session.detailShoe.leather;
     res.render("shoeM/style1/tongue2", {
@@ -184,13 +178,10 @@ router.get("/shoemen/style1/tongue2", function (req, res, next) {
       leather: leather,
     });
   });
->>>>>>> 271ee104a46e9e10f5de6590087f5a08aeec3f4f
 
 
 
 //shoe men style2
-<<<<<<< HEAD
-=======
 router.get(
     "/save/shoemen/style1/:partname/:type/:value",
     function (req, res, next) {
@@ -245,7 +236,6 @@ router.get(
   );
 
 
->>>>>>> 271ee104a46e9e10f5de6590087f5a08aeec3f4f
 router.get("/shoemen/style2/foot_front", function (req, res, next) {
   const leather = req.session.detailShoe.leather;
   res.render("shoeM/style2/foot_front", {
@@ -340,6 +330,11 @@ router.get("/choose_leather", function (req, res, next) {
   res.render("choose_leather", { title: "Choose Leather", userID: userID });
 });
 
+router.get("/preview", function (req, res, next) {
+  userID = req.session.user;
+  res.render("preview", { title: "Preview Product", userID: userID });
+});
+
 router.get("/save/choose_leather/:leather", function (req, res, next) {
   const { leather } = req.params;
   let session = req.session;
@@ -347,13 +342,6 @@ router.get("/save/choose_leather/:leather", function (req, res, next) {
   const shoe = session.detailShoe.shoe;
   const style = session.detailShoe.style;
   console.log(session);
-<<<<<<< HEAD
-  res.redirect(`/shoe/${shoe}/${style}/foot_front`);
-});
-module.exports = router;
-=======
   res.redirect(`/shoe/${shoe}/${style}/tongue2`);
 });
 module.exports = router;
-shoe
->>>>>>> 271ee104a46e9e10f5de6590087f5a08aeec3f4f
