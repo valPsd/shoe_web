@@ -70,6 +70,10 @@ function butNext() {
         alert('กรุณาเลือกวัสดุและสีของรองเท้า')
     }
     else {
+<<<<<<< HEAD
         window.location.href = '/shoe/save/shoemen/style1/hihg_top/' + type + '/' + value
+=======
+        window.location.href = '/shoe/save/shoemen/style1/high_top/' + type + '/' + value
+>>>>>>> main
     }
 }

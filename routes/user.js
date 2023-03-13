@@ -18,11 +18,15 @@ router.get('/yourDesign', function (req, res, next) {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
  router.get('/shoes/:shoeType', function (req, res, next) {
    userID = req.session.user;
 =======
 router.get('/shoes/:shoeType', function (req, res, next) {
 >>>>>>> a16bd762cd66a2e7cc6ae40f4a580e220b57e58e
+=======
+router.get('/shoes/:shoeType', function (req, res, next) {
+>>>>>>> main
    const shoeType = req.params.shoeType;
    let type = "";
    if (shoeType == "men") {
@@ -37,8 +41,12 @@ router.get('/shoes/:shoeType', function (req, res, next) {
    res.render('chooseShoe', { title: type, userID: userID });
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
  module.exports = router;
 =======
 module.exports = router;
 >>>>>>> a16bd762cd66a2e7cc6ae40f4a580e220b57e58e
+=======
+module.exports = router;
+>>>>>>> main

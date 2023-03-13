@@ -65,11 +65,19 @@ function leather_colors(colors) {
     img.style.backgroundColor = '#' + colors
 }
 function butNext() {
+<<<<<<< HEAD
     value.replace('#', '')
+=======
+    value = value.replace('#', '')
+>>>>>>> main
     if (type == '' || value == '') {
         alert('กรุณาเลือกวัสดุและสีของรองเท้า')
     }
     else {
+<<<<<<< HEAD
         window.location.href = '/shoe/save/shoemen/style1/edge/' + type + '/' + value
+=======
+        window.location.href = '/shoe/save/shoemen/style2/edge/' + type + '/' + value
+>>>>>>> main
     }
 }

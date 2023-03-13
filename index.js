@@ -11,8 +11,11 @@ let session = require('express-session')
 const indexRouter = require('./routes/auth');
 const userRouter = require('./routes/user');
 <<<<<<< HEAD
+<<<<<<< HEAD
 const adminRouter = require('./routes/admin');
 =======
+=======
+>>>>>>> main
 const shoeRouter = require('./routes/shoe');
 // const restuarantRouter = require('./routes/restuarant');
 // const riderRouter = require('./routes/riderAdmin');
@@ -50,8 +53,11 @@ app.use(flash())
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use('/admin', adminRouter);
 =======
+=======
+>>>>>>> main
 app.use('/shoe', shoeRouter);
 // app.use('/restuarants', restuarantRouter);
 // app.use('/rider', riderRouter);

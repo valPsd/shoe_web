@@ -60,7 +60,11 @@ router.get(
     }
     // 12
     else if (partname === "tongue2") {
+<<<<<<< HEAD
       res.redirect("shoe/shoemen/style1/shoe_lace");
+=======
+      res.redirect("/shoe/shoemen/style1/shoe_lace");
+>>>>>>> main
     }
   }
 );
@@ -170,10 +174,78 @@ router.get("/shoemen/style1/tongue", function (req, res, next) {
     leather: leather,
   });
 });
+<<<<<<< HEAD
+=======
+router.get("/shoemen/style1/tongue2", function (req, res, next) {
+    const leather = req.session.detailShoe.leather;
+    res.render("shoeM/style1/tongue2", {
+      title: "Shoe Men Tongue",
+      userID: userID,
+      leather: leather,
+    });
+  });
+>>>>>>> main
 
 
 
 //shoe men style2
+<<<<<<< HEAD
+=======
+router.get(
+    "/save/shoemen/style1/:partname/:type/:value",
+    function (req, res, next) {
+      const { partname, value, type } = req.params;
+      // console.log(partname, value);
+      let session = req.session;
+      session.detailShoe.partname = partname;
+      session.detailShoe.type = type;
+      session.detailShoe.value = value;
+      console.log(session);
+      // 1
+      if (partname === "attached_heel") {
+        res.redirect("/shoe/shoemen/style2/counter_lining");
+      }
+      // 2
+      else if (partname === "bottom") {
+        res.redirect("/shoe/preview");
+      }
+      // 3
+      else if (partname === "edge") {
+        res.redirect("/shoe/shoemen/style2/middle");
+      }
+      // 4
+      else if (partname === "middle") {
+        res.redirect("/shoe/shoemen/style2/tongue");
+      }
+      // 5
+      else if (partname === "foot_front") {
+        res.redirect("/shoe/shoemen/style2/edge");
+      }
+      // 6
+      else if (partname === "counter_lining") {
+        res.redirect("/shoe/shoemen/style2/tongue2");
+      }
+      // 7
+      else if (partname === "shoe_lace") {
+        res.redirect("/shoe/shoemen/style2/back");
+      }
+      // 8
+      else if (partname === "tongue") {
+        res.redirect("/shoe/shoemen/style2/attached_heel");
+      }
+      // 9
+      else if (partname === "back") {
+        res.redirect("/shoe/shoemen/style2/bottom");
+      }
+      // 10
+      else if (partname === "tongue2") {
+        res.redirect("/shoe/shoemen/style2/shoe_lace");
+      }
+    }
+  );
+
+
+>>>>>>> main
 router.get("/shoemen/style2/foot_front", function (req, res, next) {
   const leather = req.session.detailShoe.leather;
   res.render("shoeM/style2/foot_front", {
@@ -275,6 +347,13 @@ router.get("/save/choose_leather/:leather", function (req, res, next) {
   const shoe = session.detailShoe.shoe;
   const style = session.detailShoe.style;
   console.log(session);
+<<<<<<< HEAD
   res.redirect(`/shoe/${shoe}/${style}/foot_front`);
 });
 module.exports = router;
+=======
+  res.redirect(`/shoe/${shoe}/${style}/tongue2`);
+});
+module.exports = router;
+shoe
+>>>>>>> main
