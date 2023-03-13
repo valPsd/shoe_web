@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/propper/popper.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+
+    <style>
+        .vl {
+            border-left: 1px solid black;
+            height: 700px;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include ../layout/NavBarAdmin %>
+        <form action="">
+            <div class="container row" style="padding-left: 15%; margin-top: 5%; margin-bottom: 10%;">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <h3>รูปสินค้า</h3>
+                            <img src="" style="width: 100%; margin-top: 10%;" id="shoeImg">
+                            <input class="addBtn" type="file" onchange="readURL(this);"
+                                style=" margin-top: 10%; font-size: 18px; font-weight: bold;">
+                        </div>
+                        <div class="col-6">
+                            <label for="name" style="font-size: 20px;">ชื่อรุ่น</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="กรอกชื่อรุ่น"
+                                style="border-radius: 10px; background-color: rgb(237, 237, 237); border: none;">
+
+                            <label for="price" style="font-size: 20px; margin-top: 5%;">ราคา</label>
+                            <input type="text" class="form-control" id="price" name="price" placeholder="กรอกราคา"
+                                style="border-radius: 10px; background-color: rgb(237, 237, 237); border: none;">
+
+                            <label for="detail" style="font-size: 20px; margin-top: 5%;">รายละเอียด</label>
+                            <textarea type="text" class="form-control" id="detail" name="detail"
+                                placeholder="กรอกรายละเอียด"
+                                style="border-radius: 10px; background-color: rgb(237, 237, 237); border: none;"></textarea>
+
+                            <select class="form-select"
+                                style="border-radius: 10px; border: none; background-color: rgb(237, 237, 237); font-size: 18px; margin-top: 10%;">
+                                <option>รองเท้าผู้ชาย</option>
+                                <option>รองเท้าผู้หญิง</option>
+                                <option>รองเท้าเด็ก</option>
+                            </select>
+
+                            <label
+                                style="font-size: 20px; margin-top: 7%; margin-bottom: 2%;">ส่วนของรองเท้าที่ปรับแต่งได้</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="footFront">
+                                <label class="form-check-label" for="footFront">
+                                    หน้าเท้า
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="edge">
+                                <label class="form-check-label" for="edge">
+                                    ขอบ
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="middle">
+                                <label class="form-check-label" for="middle">
+                                    ไตรมาส
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="tongueLogo">
+                                <label class="form-check-label" for="tongueLogo">
+                                    ป้ายลิ้นรองเท้า
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="tongueBase">
+                                <label class="form-check-label" for="tongueBase">
+                                    ส่วนยึดติดกับลิ้น
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="attatchHeel">
+                                <label class="form-check-label" for="attatchHeel">
+                                    ส่วนหุ้มข้อ
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="eyelet">
+                                <label class="form-check-label" for="eyelet">
+                                    รูร้อยเชือก
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="counterLining">
+                                <label class="form-check-label" for="counterLining">
+                                    ชั้นบุ
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="tongue">
+                                <label class="form-check-label" for="tongue">
+                                    ลิ้น
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="shoeLace">
+                                <label class="form-check-label" for="shoeLace">
+                                    เชือก
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="pullTab">
+                                <label class="form-check-label" for="pullTab">
+                                    แถบช่วยสวมที่ส้น
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="bottom">
+                                <label class="form-check-label" for="bottom">
+                                    พื้นรองเท้า
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 vl" style="margin-left: 3%; width: 20px;"></div>
+                <div class="col-5">
+                    <label style="font-size: 20px; margin-bottom: 2%;">ไซส์และสต็อคสินค้า</label>
+                    <div id="divAll">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" class="form-control" id="size1" name="size1" placeholder="ไซส์"
+                                    style="border-radius: 10px; background-color: rgb(237, 237, 237); border: none;">
+                            </div>
+                            <div class="col-6">
+                                <input type="text" class="form-control" id="stock1" name="stock1"
+                                    placeholder="จำนวนในสต็อค"
+                                    style="border-radius: 10px; background-color: rgb(237, 237, 237); border: none;">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="addRow" type="button" onclick="addSize()"
+                        style="margin-top: 5%; border: none; border-radius: 30px; padding: 5px 10px; font-size: 16px; font-weight: bold; background-color: gray; color: white;">
+                        เพิ่ม</button>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success"
+                        style="width: 150px; font-size: 20px; border-radius: 30px; margin-top: 5%;">บันทึก</button>
+                </div>
+            </div>
+        </form>
+        <%- include ../Layout/Footer %>
+
+            <script>
+                function addSize() {
+                    let html = '<div class="row" style="margin-top: 3%">'
+                    html += '<div class="col-6">'
+                    html += '<input type="text" class="form-control" id="size1" name="size1" placeholder="ไซส์" style="border-radius: 10px; background-color: rgb(237, 237, 237); border: none;">'
+                    html += '</div> <div class="col-6"> '
+                    html += '<input type="text" class="form-control" id="stock1" name="stock1" placeholder="จำนวนในสต็อค" style="border-radius: 10px; background-color: rgb(237, 237, 237); border: none;">'
+                    html += '</div> </div>';
+
+                    $('#divAll').append(html)
+                }
+
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#shoeImg').attr('src', e.target.result);
+                        };
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+</body>
+
+</html>

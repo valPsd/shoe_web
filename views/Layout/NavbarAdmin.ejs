@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="padding: 0.5% 2%; background-color: #dedede;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"><img src="/images/logo.png" style="width: 60px; border-radius: 30px;"></a>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/status" style="font-size: 20px; color: black; font-weight: bold;">สถานะการส่ง</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/shoes" style="font-size: 20px; color: black; font-weight: bold;">สินค้าทั้งหมด</a>
+            </li>
+        </ul>
+    </div>
+    <% if (adminID) { %>
+        <a href="/logout"><button class="btn btn-outline-danger my-2 my-sm-0" type="button">Logout</button></a>
+        <% }%>
+</nav>
