@@ -548,7 +548,7 @@ router.get("/save/choose_leather/:leather", function (req, res, next) {
   if (shoe === "shoemen") {
     res.redirect(`/shoe/${shoe}/${style}/foot_front`);
   } else if (shoe === "shoewomen") {
-    res.redirect(`/shoe/${shoe}/${style}/pull_tab`);
+    res.redirect(`/shoe/${shoe}/${style}/middle`);
   }
 });
 module.exports = router;
