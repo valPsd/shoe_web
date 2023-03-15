@@ -54,7 +54,7 @@ function changeColor(picker) {
 function choose_leather(leather) {
     type = 'leather'
     value ='none'
-    // img.style.backgroundColor = 'white';
+    img.style.backgroundColor = '';
     img.style.backgroundImage = "url('/images/"+ leather +".jpg')"
     document.getElementById('changeColor').style.display = 'none'
     document.getElementById('leatherColor').style.display = 'flex'
