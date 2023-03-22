@@ -1,16 +1,23 @@
-#attached_heel {
+#edge {
   margin-left: -12px;
-  width: 690px;
-  height: 448px;
+  width: 680px;
+  height: 498px;
 }
 
+/* .space {
+  height: 200px;
+} */
+
 .img {
+  /* background-position: 100%; */
   background-repeat: no-repeat;
   background-size: cover;
-  width: 690px;
-  height: 448px;
-  margin-left: 3%;
-  background-position: -8px 8px;
+  margin-left: 3.65%;
+  margin-top: 5%;
+  width: 680px;
+  height: 498px;
+  /* background-image: url('/images/vegetable.jpg'); */
+  /* background-position: -8px 8px; */
   background-blend-mode: soft-light;
   /* background-color: #1c1c1c; */
   fill: #DBED64;

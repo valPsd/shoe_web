@@ -375,7 +375,7 @@ router.get("/shoewomen/style1/pull_tab", function (req, res, next) {
 router.get("/shoewomen/style1/foot_front", function (req, res, next) {
   const leather = req.session.detailShoe.leather;
   res.render("shoeW/style1/foot_front", {
-    title: "Shoe Women Pull tab",
+    title: "Shoe Women Foot front",
     userID: userID,
     leather: leather,
   });
@@ -524,7 +524,144 @@ router.get("/shoewomen/style2/tongue", function (req, res, next) {
   });
 });
 
+
 //shoe childen style1
+router.get(
+  "/save/shoekid/style1/:partname/:type/:value",
+  function (req, res, next) {
+    const { partname, value, type } = req.params;
+    // console.log(partname, value);
+    let session = req.session;
+    session.detailShoe.partname = partname;
+    session.detailShoe.type = type;
+    session.detailShoe.value = value;
+    console.log(session);
+    // 1
+    if (partname === "middle") {
+      res.redirect("/shoe/shoekid/style1/tongue");
+    }
+    // 2
+    else if (partname === "bottom") {
+      res.redirect("/shoe/preview");
+    }
+    // 3
+    else if (partname === "counter_lining") {
+      res.redirect("/shoe/shoekid/style1/back");
+    }
+    // 4
+    else if (partname === "eyelet") {
+      res.redirect("/shoe/shoekid/style1/attached_heel");
+    }
+    // 5
+    else if (partname === "foot_front") {
+      res.redirect("/shoe/shoekid/style1/middle");
+    }
+    // 6
+    else if (partname === "pull_tab") {
+      res.redirect("/shoe/shoekid/style1/bottom");
+    }
+    // 7
+    else if (partname === "back") {
+      res.redirect("/shoe/shoekid/style1/pull_tab");
+    }
+    // 8
+    else if (partname === "tongue") {
+      res.redirect("/shoe/shoekid/style1/eyelet");
+    }
+    // 9
+    else if (partname === "attached_heel") {
+      res.redirect("/shoe/shoekid/style1/edge");
+    }
+     // 10
+     else if (partname === "edge") {
+      res.redirect("/shoe/shoekid/style1/counter_lining");
+    }
+  }
+);
+
+router.get("/shoekid/style1/pull_tab", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/pull_tab", {
+    title: "Shoe kid Pull tab",
+    userID: userID,
+    leather: leather,
+  });
+});
+router.get("/shoekid/style1/foot_front", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/foot_front", {
+    title: "Shoe kid Foot front",
+    userID: userID,
+    leather: leather,
+  });
+});
+router.get("/shoekid/style1/bottom", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/bottom", {
+    title: "Shoe kid Bottom",
+    userID: userID,
+    leather: leather,
+  });
+});
+router.get("/shoekid/style1/counter_lining", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/counter_lining", {
+    title: "Shoe kid Conuter lining",
+    userID: userID,
+    leather: leather,
+  });
+});
+router.get("/shoekid/style1/eyelet", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/eyelet", {
+    title: "Shoe kid Eyelet",
+    userID: userID,
+    leather: leather,
+  });
+});
+router.get("/shoekid/style1/middle", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/middle", {
+    title: "Shoe kid Middle",
+    userID: userID,
+    leather: leather,
+  });
+});
+router.get("/shoekid/style1/attached_heel", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/attached_heel", {
+    title: "Shoe kid Shoe lace",
+    userID: userID,
+    leather: leather,
+  });
+});
+router.get("/shoekid/style1/tongue", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/tongue", {
+    title: "Shoe kid Tongue",
+    userID: userID,
+    leather: leather,
+  });
+});
+router.get("/shoekid/style1/back", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/back", {
+    title: "Shoe kid Back",
+    userID: userID,
+    leather: leather,
+  });
+});
+router.get("/shoekid/style1/edge", function (req, res, next) {
+  const leather = req.session.detailShoe.leather;
+  res.render("shoeCh/style1/edge", {
+    title: "Shoe kid Back",
+    userID: userID,
+    leather: leather,
+  });
+});
+
+
+
 //shoe childen style2
 
 //choose matirial
@@ -549,6 +686,8 @@ router.get("/save/choose_leather/:leather", function (req, res, next) {
     res.redirect(`/shoe/${shoe}/${style}/foot_front`);
   } else if (shoe === "shoewomen") {
     res.redirect(`/shoe/${shoe}/${style}/middle`);
+  }else if (shoe === "shoekid") {
+    res.redirect(`/shoe/${shoe}/${style}/foot_front`);
   }
 });
 module.exports = router;
