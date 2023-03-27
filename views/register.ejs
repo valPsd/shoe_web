@@ -14,7 +14,7 @@
 <body>
     <div class="container text-center" style="margin-bottom: 2%;">
         <img src="/images/logo.png" style="width: 300px;">
-        <form style="margin-left: 35%; margin-right: 35%;" method="post" action="/register">
+        <form style="margin-left: 35%; margin-right: 35%;" id="regisForm" method="post" action="/register">
             <div class="form-group text-start">
                 <label for="name">ชื่อ-นามสกุล</label>
                 <input type="text" class="form-control input-box" id="name" name="name"
@@ -47,10 +47,34 @@
                 <input type="password" class="form-control input-box" id="conPass" name="conPass" placeholder="กรุณากรอกยืนยันรหัสผ่าน" required>
             </div>
             <br><br>
-            <button type="submit" class="btn w-100"
+            <button type="button" class="btn w-100" onclick="validate()"
                 style="background-color: #414141; color: white; border-radius: 50px;">ลงทะเบียน</button>
         </form>
     </div>
+
+    <script>
+        function validate() {
+            const name = $('#name').val()
+            const email = $('#email').val()
+            const birthDate = $('#birthDate').val()
+            const address = $('#address').val()
+            const password = $('#password').val();
+            const conPassword = $('#conPass').val();
+
+            if (!name || !email || !birthDate || !address || !password || !conPassword) {
+                alert("กรุณากรอกข้อมูลให้ครบทุกช่อง")
+            }
+            else if (password.length < 6) {
+                alert("รหัสผ่านต้องมีอย่างน้อย 6 ตัว")
+            }
+            else if ($('#password').val() != $('#conPass').val()) {
+                alert("รหัสผ่านกับยืนยันรหัสผ่านต้องตรงกัน")
+            }
+            else{
+                $("#regisForm").submit()
+            }
+        }
+    </script>
 </body>
 
 </html>
