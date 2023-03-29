@@ -21,7 +21,7 @@
     "express-fileupload": "^1.4.0",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.3",
-    "firebase": "^9.17.1",
+    "firebase": "^8.6.8",
     "firebase-admin": "^11.5.0",
     "flash-express": "^1.0.4",
     "html2canvas": "^1.4.1",
@@ -36,5 +36,8 @@
     "node-localstorage": "^2.2.1",
     "nodemon": "^2.0.20",
     "xhr2": "^0.2.1"
+  },
+  "devDependencies": {
+    "@babel/helper-compilation-targets": "^7.20.7"
   }
 }
