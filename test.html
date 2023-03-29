@@ -16,6 +16,7 @@
             padding: 0;
             height: 100%;
             width: 100%;
+            background-color: #DBED64;
         }
 
         *,
@@ -102,7 +103,7 @@
         </svg>
         <!-- <img id="background-image"
             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/alex-holyoake-unsplash_hkda7r.jpg" alt=""> -->
-        <img id="background-image" src="shoe_pics/shoe1/shoe1.png" alt="">
+        <img id="background-image" style="height: 300px;" src="/public/images/men/style1/shoe1.png" alt="">
     </div>
 
     <input class="jscolor {onFineChange:'changeColor(this)'} butt1" value="DBED64">
@@ -164,7 +165,7 @@
         let { width, height } = parent.getBoundingClientRect();
         let yPercentage = x / y;
         let xPercentage = y / x;
-
+        console.log(x);
         // Set styles, these can be moved to CSS if need be
         parent.setAttribute("style", "position: relative; overflow: hidden;");
 

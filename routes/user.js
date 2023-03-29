@@ -57,4 +57,63 @@ router.get('/payment', function (req, res, next) {
    res.redirect('/success/' + msg + '/' + path);
 });
 
+router.get("/preview", function (req, res, next) {
+   userID = req.session.user;
+   let session = req.session;
+   const shoe = session.detailShoe.shoe;
+   const style = session.detailShoe.style;
+   console.log(shoe, style);
+   // const picNum = 'shoe2_full'
+   // const { shoe, style } = req.params
+   res.render("preview", { title: "Preview Product", userID: userID, shoe : shoe, style: style });
+ });
+
+ //men2
+ router.get("/preview-men2", function (req, res, next) {
+   userID = req.session.user;
+   let session = req.session;
+   const shoe = session.detailShoe.shoe;
+   const style = session.detailShoe.style;
+   console.log(shoe, style);
+   // const picNum = 'shoe2_full'
+   // const { shoe, style } = req.params
+   res.render("preview2", { title: "Preview Product", userID: userID, shoe : shoe, style: style });
+ });
+
+ //women1
+ router.get("/preview-women1", function (req, res, next) {
+   userID = req.session.user;
+   let session = req.session;
+   const shoe = session.detailShoe.shoe;
+   const style = session.detailShoe.style;
+   console.log(shoe, style);
+   // const picNum = 'shoe2_full'
+   // const { shoe, style } = req.params
+   res.render("preview3", { title: "Preview Product", userID: userID, shoe : shoe, style: style });
+ });
+
+ //women2
+ router.get("/preview-women2", function (req, res, next) {
+   userID = req.session.user;
+   let session = req.session;
+   const shoe = session.detailShoe.shoe;
+   const style = session.detailShoe.style;
+   console.log(shoe, style);
+   // const picNum = 'shoe2_full'
+   // const { shoe, style } = req.params
+   res.render("preview4", { title: "Preview Product", userID: userID, shoe : shoe, style: style });
+ });
+
+ //kid1
+ router.get("/preview-kid", function (req, res, next) {
+   userID = req.session.user;
+   let session = req.session;
+   const shoe = session.detailShoe.shoe;
+   const style = session.detailShoe.style;
+   console.log(shoe, style);
+   // const picNum = 'shoe2_full'
+   // const { shoe, style } = req.params
+   res.render("preview5", { title: "Preview Product", userID: userID, shoe : shoe, style: style });
+ });
+
 module.exports = router;

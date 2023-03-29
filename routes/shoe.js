@@ -20,7 +20,7 @@ router.get(
     }
     // 2
     else if (partname === "bottom") {
-      res.redirect("/shoe/preview");
+      res.redirect("/user/preview");
     }
     // 3
     else if (partname === "edge") {
@@ -65,21 +65,7 @@ router.get(
   }
 );
 
-//get shoe style
-router.get("/:shoe/:style/", function (req, res, next) {
-  const { shoe, style } = req.params;
 
-  if (shoe != null && style != null) {
-    let session = req.session;
-    session.detailShoe = {
-      shoe: shoe,
-      style: style,
-    };
-    console.log(style);
-    console.log(session);
-    res.redirect("/shoe/choose_leather");
-  }
-});
 
 router.get("/shoemen/style1/attached_heel", function (req, res, next) {
   const leather = req.session.detailShoe.leather;
@@ -196,7 +182,7 @@ router.get(
     }
     // 2
     else if (partname === "bottom") {
-      res.redirect("/shoe/preview");
+      res.redirect("/user/preview-men2");
     }
     // 3
     else if (partname === "edge") {
@@ -331,7 +317,7 @@ router.get(
     }
     // 2
     else if (partname === "bottom") {
-      res.redirect("/shoe/preview");
+      res.redirect("/user/preview-women1");
     }
     // 3
     else if (partname === "counter_lining") {
@@ -454,7 +440,7 @@ router.get(
     }
     // 2
     else if (partname === "bottom") {
-      res.redirect("/shoe/preview");
+      res.redirect("/user/preview-women2");
     }
     // 3
     else if (partname === "counter_lining") {
@@ -542,7 +528,7 @@ router.get(
     }
     // 2
     else if (partname === "bottom") {
-      res.redirect("/shoe/preview");
+      res.redirect("/shoe/preview-kid");
     }
     // 3
     else if (partname === "counter_lining") {
@@ -664,16 +650,38 @@ router.get("/shoekid/style1/edge", function (req, res, next) {
 
 //shoe childen style2
 
+//get shoe style
+router.get("/:shoe/:style/", function (req, res, next) {
+  const { shoe, style } = req.params;
+
+  if (shoe != null && style != null) {
+    let session = req.session;
+    session.detailShoe = {
+      shoe: shoe,
+      style: style,
+    };
+    console.log(style);
+    console.log(session);
+    res.redirect("/shoe/save/choose_leather/chamois");
+  }
+});
+
 //choose matirial
 router.get("/choose_leather", function (req, res, next) {
   userID = req.session.user;
   res.render("choose_leather", { title: "Choose Leather", userID: userID });
 });
 
-router.get("/preview", function (req, res, next) {
-  userID = req.session.user;
-  res.render("preview", { title: "Preview Product", userID: userID });
-});
+// router.get("/preview", function (req, res, next) {
+//   userID = req.session.user;
+//   let session = req.session;
+//   const shoe = session.detailShoe.shoe;
+//   const style = session.detailShoe.style;
+//   console.log(shoe, style);
+//   // const picNum = 'shoe2_full'
+//   // const { shoe, style } = req.params
+//   res.render("preview", { title: "Preview Product", userID: userID, shoe : shoe, style: style });
+// });
 
 router.get("/save/choose_leather/:leather", function (req, res, next) {
   const { leather } = req.params;
@@ -681,9 +689,9 @@ router.get("/save/choose_leather/:leather", function (req, res, next) {
   session.detailShoe.leather = leather;
   const shoe = session.detailShoe.shoe;
   const style = session.detailShoe.style;
-  console.log(session);
+  // console.log(session);
   if (shoe === "shoemen") {
-    res.redirect(`/shoe/${shoe}/${style}/foot_front`);
+    res.redirect(`/shoe/${shoe}/${style}/bottom`);
   } else if (shoe === "shoewomen") {
     res.redirect(`/shoe/${shoe}/${style}/middle`);
   }else if (shoe === "shoekid") {
