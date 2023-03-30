@@ -91,13 +91,6 @@ router.post('/login', function (req, res) {
 
 router.post('/register', function (req, res) {
    const { name, email, birthDate, address, password } = req.body;
-   // firebase.auth().createUser({
-   //    email: email,
-   //    emailVerified: false,
-   //    password: password,
-   //    displayName: name,
-   //    disabled: false
-   // })
    firebaseClient.auth().createUserWithEmailAndPassword(email, password)
       .then(async userRecord => {
          console.log('Successfully created new user:', userRecord.user.uid);
