@@ -16,6 +16,7 @@
             padding: 0;
             height: 100%;
             width: 100%;
+            background-color: #DBED64;
         }
 
         *,
@@ -162,7 +163,7 @@
         let { width, height } = parent.getBoundingClientRect();
         let yPercentage = x / y;
         let xPercentage = y / x;
-
+        console.log(x);
         // Set styles, these can be moved to CSS if need be
         parent.setAttribute("style", "position: relative; overflow: hidden;");
 
