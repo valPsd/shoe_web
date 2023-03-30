@@ -23,27 +23,19 @@
                         <th scope="col">ราคาทั้งหมด</th>
                         <th scope="col">วันที่สั่งออเดอร์</th>
                         <th scope="col">สถานะ</th>
+                        <th scope="col">เลขพัสดุ</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <% for(let i = 0; i < orderList.length; i++) { %>
                     <tr>
-                        <td>ชื่อสินค้า</td>
-                        <td>6000฿</td>
-                        <td>12/8/2023</td>
-                        <td>กำลังรอการจัดส่ง</td>
+                        <td><%= orderList[i].ProductName %></td>
+                        <td><%= orderList[i].Price %>฿</td>
+                        <td><%= orderList[i].Date %> <%= orderList[i].Time %></td>
+                        <td><%= orderList[i].Status %></td>
+                        <td><%= orderList[i].TrackingNumber %></td>
                     </tr>
-                    <tr>
-                        <td>ชื่อสินค้า</td>
-                        <td>6000฿</td>
-                        <td>12/8/2023</td>
-                        <td>เสร็จสิ้น</td>
-                    </tr>
-                    <tr>
-                        <td>ชื่อสินค้า</td>
-                        <td>6000฿</td>
-                        <td>12/8/2023</td>
-                        <td>เสร็จสิ้น</td>
-                    </tr>
+                    <% } %>
                 </tbody>
             </table>
         </div>

@@ -16,16 +16,13 @@
             <h1>รองเท้าของคุณ</h1>
         </div>
         <div class="row mt-4" style="margin-bottom: 6%;">
+            <% for(let i = 0; i < orderList.length; i++) { %>
             <div class="col-4 text-center">
-                <img src="/images/shoe_home.png" style="width: 80%;">
-                <h3 class="mt-2">ชื่อรุ่น</h3>
-                <p>ราคา</p>
+                <img src="<%= orderList[i].Image %>" style="width: 80%;">
+                <h3 class="mt-2"><%= orderList[i].ProductName %></h3>
+                <p><%= orderList[i].Price %></p>
             </div>
-            <div class="col-4 text-center">
-                <img src="/images/shoe_home.png" style="width: 80%;">
-                <h3 class="mt-2">ชื่อรุ่น</h3>
-                <p>ราคา</p>
-            </div>
+            <% } %>
         </div>
         <%- include Layout/Footer %>
 </body>

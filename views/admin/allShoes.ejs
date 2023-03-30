@@ -10,11 +10,11 @@
     <script src="/js/jquery.min.js"></script>
 
     <style>
-        .addBtn:hover{
+        .addBtn:hover {
             background-color: lightgray;
         }
-        
-        .addBtn{
+
+        .addBtn {
             background-color: white;
         }
     </style>
@@ -22,21 +22,25 @@
 
 <body>
     <%- include ../layout/NavBarAdmin %>
-        <div class="text-end mt-4" style="padding-right: 3%;">
-            <button class="addBtn" type="button" onclick="location.href = '/admin/addProduct'"
-                style="border: black 1px solid; border-radius: 30px; padding: 10px; font-size: 20px; font-weight: bold;">+
-                เพิ่มสินค้า</button>
-        </div>
-        <div class="row mt-4" style="margin-bottom: 6%;">
-            <div class="col-4 text-center">
-                <img src="/images/men/shoe1.png" style="width: 80%;">
-                <h3 class="mt-2">ชื่อรุ่น</h3>
-                <p>ราคา</p>
+        <div class="container-fluid">
+            <div class="row mt-4" style="padding-right: 3%;">
+                <div class="col-10 text-center">
+                    <h1 style="margin-left: 25%;">สินค้าทั้งหมด</h1>
+                </div>
+                <div class="col-2 text-end">
+                    <button class="addBtn" type="button" onclick="location.href = '/admin/addProduct'"
+                        style="border: black 1px solid; border-radius: 30px; padding: 10px; font-size: 20px; font-weight: bold;">+
+                        เพิ่มสินค้า</button>
+                </div>
             </div>
-            <div class="col-4 text-center">
-                <img src="/images/men/shoe2.png" style="width: 80%;">
-                <h3 class="mt-2">ชื่อรุ่น</h3>
-                <p>ราคา</p>
+            <div class="row mt-4" style="margin-bottom: 6%;">
+                <% for(let i=0; i < shoeList.length; i++) { %>
+                    <div class="col-4 text-center">
+                        <img src="<%= shoeList[i].Image %>" style="width: 80%;">
+                        <h3 class="mt-2"><%= shoeList[i].Name %></h3>
+                        <p><%= shoeList[i].Price %></p>
+                    </div>
+                <% } %>
             </div>
         </div>
         <%- include ../Layout/Footer %>

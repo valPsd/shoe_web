@@ -1,7 +1,10 @@
 const express = require("express");
 const session = require("express-session");
 const router = express.Router();
+const firebase = require("firebase");
+const db = firebase.firestore();
 let userID = "";
+let shoesDetail = [];
 
 //shoe men style1
 router.get(
@@ -69,6 +72,60 @@ router.get(
     }
   }
 );
+
+//get shoe style
+router.get("/:shoe/:style/", function (req, res, next) {
+  const { shoe, style } = req.params;
+
+  shoesDetail = [];
+  let shoeName, shoePrice;
+  db.collection("Products")
+      .get()
+      .then((querySnapshot) => {
+         querySnapshot.forEach((doc) => {
+            shoesDetail.push(doc.data())
+         });
+
+         if (shoe != null && style != null) {
+          if (shoe == "shoemen") {
+            shoeName = "รองเท้าผู้ชาย"
+           }else if (shoe == "shoewomen") {
+            shoeName = "รองเท้าผู้หญิง"
+           }else {
+            shoeName = "รองเท้าเด็ก"
+           }
+  
+           if (style == "style1") {
+            shoeName += " แบบที่ 1"
+           }else {
+            shoeName += " แบบที่ 2"
+           }
+  
+           shoesDetail.forEach(element => {
+            if (element.Name == shoeName) {
+              shoePrice = element.Price
+            }
+           });
+
+          let session = req.session;
+          session.productName = shoeName;
+          session.productPrice = shoePrice;
+          session.detailShoe = {
+            shoe: shoe,
+            style: style,
+          };
+          console.log(style);
+          console.log(session);
+          res.redirect("/shoe/choose_leather");
+        }
+      })
+      .catch((error) => {
+         console.log("Error getting documents: ", error);
+         msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
+         path = 'login';
+         res.redirect('/success/' + msg + '/' + path);
+      });
+});
 
 router.get("/shoemen/style1/attached_heel", function (req, res, next) {
   const leather = req.session.detailShoe.leather;
@@ -715,4 +772,5 @@ router.get("/save/choose_leather/:leather", function (req, res, next) {
     res.redirect(`/shoe/${shoe}/${style}/foot_front`);
   }
 });
+
 module.exports = router;

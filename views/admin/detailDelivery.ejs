@@ -20,29 +20,45 @@
     <%- include ../Layout/NavbarAdmin %>
         <div class="container">
             <div class="text-center" style="margin-top: 2%;">
-                <h1>ออเดอร์เลขที่ 1235678</h1>
+                <h1>ออเดอร์เลขที่ <%= order.OrderNumber %></h1>
             </div>
-            <form action="">
+            <form action="/admin/editOrder/<%= orderID %>" method="post" id="formSubmit">
                 <div class="row" style="margin-top: 2%;">
                     <div class="col-2"></div>
                     <div class="col-4">
-                        <p style="font-size: 25px;">ชื่อสินค้า: </p>
-                        <p style="font-size: 25px;">ราคา: </p>
-                        <img style="width: 250px;" src="/images/slipEx.jpg">
+                        <p style="font-size: 25px;">ชื่อสินค้า: <%= order.ProductName %></p>
+                        <p style="font-size: 25px;">ราคา: <%= order.Price %></p>
+                        <img style="width: 250px;" src="<%= order.Slip %>">
                     </div>
                     <div class="col-4 text-center">
                         <div class="row justify-content-center">
-                            <select class="form-select" style="width: 220px; border: none; font-size: 25px;">
-                                <option>รับยอดแล้ว</option>
+                            <select class="form-select" style="width: 220px; border: none; font-size: 25px;" name="status">
+                                <% for(let i=0; i<listStatus.length; i++) { %>
+                                    <% if(listStatus[i] == order.Status){ %>
+                                        <option value="<%= listStatus[i] %>" selected>
+                                            <%= listStatus[i] %>
+                                        </option>
+                                        <% } else{ %>
+                                            <option value="<%= listStatus[i] %>">
+                                                <%= listStatus[i] %>
+                                            </option>
+                                            <% } %>
+                                                <% } %>
+                                <!-- <option>รับยอดแล้ว</option>
                                 <option>กำลังจัดส่ง</option>
-                                <option>จัดส่งเรียบร้อย</option>
+                                <option>จัดส่งเรียบร้อย</option> -->
                             </select>
                         </div>
 
                         <div class="form-group text-start" style="margin-top: 10%;">
                             <label for="tracking" style="font-size: 25px;">เลขพัสดุ</label>
-                            <input type="text" class="form-control" id="tracking" placeholder="กรอกเลขพัสดุ"
-                                style="border-radius: 30px; background-color: rgb(237, 237, 237); border: none;">
+                            <% if(order.TrackingNumber == ""){ %>
+                            <input type="text" name="tracking" class="form-control" id="tracking" placeholder="กรอกเลขพัสดุ"
+                                style="border-radius: 30px; background-color: rgb(237, 237, 237); border: none;" required>
+                            <% }else{ %>
+                                <input type="text" name="tracking" class="form-control" id="tracking" placeholder="กรอกเลขพัสดุ" value="<%= order.TrackingNumber %>"
+                                style="border-radius: 30px; background-color: rgb(237, 237, 237); border: none;" required>
+                            <% } %>
                         </div>
                     </div>
                     <div class="col-2"></div>

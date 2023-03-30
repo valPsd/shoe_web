@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <script src="/propper/popper.min.js"></script>
     <script src="/js/jquery.min.js"></script>
+    <script src="/javascripts/html2canvas.js"></script>
+    <script src="/javascripts/canvas2image.js"></script>
     <title>
         <%= title %>
     </title>
@@ -395,16 +397,16 @@
             <img id="background-image" src="/images/shoe1/shoe1.png" alt="">
         </div>
 
-        <form action="/user/cart" method="post">
+        <form action="/user/addToCart" method="post" id="formCart" enctype="multipart/form-data">
             <div class="row" style="margin-top: 3%;">
                 <div class="col-2"></div>
                 <div class="col-3">
-                    <p style="font-size: 30px;">ชื่อรองเท้า</p>
-                    <p style="font-size: 20px;">4000 บาท</p>
+                    <p style="font-size: 30px;">รองเท้าผู้ชาย แบบที่ 1</p>
+                    <p style="font-size: 20px;">4500 บาท</p>
                 </div>
                 <div class="col-3">
                     <label for="size">เลือกไซส์</label>
-                    <select class="form-select" id="size"
+                    <select class="form-select" id="size" name="size"
                         style="border-radius: 10px; border: none; background-color: rgb(237, 237, 237); font-size: 18px; margin-top: 2%; width: 200px;">
                         <option>37</option>
                         <option>38</option>
@@ -413,15 +415,39 @@
                     </select>
                 </div>
                 <div class="col-3">
-                    <button type="submit" class="btn btn-success"
+                    <button type="button" class="btn btn-success" id="addCart"
                         style="width: 150px; font-size: 20px; border-radius: 30px; margin-top: 5%;">เพิ่มลงตะกร้า</button>
                 </div>
+                <input type="file" name="shoeImg" id="shoeImg" style="display: none;">
             </div>
         </form>
         <div style="height: 100px;"></div>
         <%- include Layout/Footer %>
 </body>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.js'></script>
+
+<!-- shoe capture -->
+<script>
+    $('#addCart').on('click', function () {
+        const child = document.getElementById("product-svg");
+        const form = $('#formCart');
+        child.setAttribute(
+            "style",
+            "bottom: 2.8%; left: 0.3%"
+        );
+        html2canvas(document.querySelector("#container")).then(canvas => {
+            canvas.toBlob(function (blob) {
+                let fileName = 'shoeDoneModify.jpg'
+                let file = new File([blob], fileName, { type: "image/jpeg", lastModified: new Date().getTime() }, 'utf-8');
+                let container = new DataTransfer();
+                container.items.add(file);
+                document.querySelector('#shoeImg').files = container.files
+                console.log(document.querySelector('#shoeImg').files);
+                form.submit();
+            });
+        });
+    })
+</script>
 
 <script>
     // const partdetail = '<%- partdetail %>'
