@@ -10,10 +10,15 @@ router.get(
     const { partname, value, type } = req.params;
     // console.log(partname, value);
     let session = req.session;
-    session.detailShoe.partname = partname;
-    session.detailShoe.type = type;
-    session.detailShoe.value = value;
+    let partdetail = session.detailShoe.partname;
+    partdetail.push({
+      partname: partname,
+      type: type,
+      value: value,
+    });
+    session.detailShoe.partname = partdetail;
     console.log(session);
+    console.log(session.detailShoe.partname);
     // 1
     if (partname === "attached_heel") {
       res.redirect("/shoe/shoemen/style1/high_top");
@@ -64,8 +69,6 @@ router.get(
     }
   }
 );
-
-
 
 router.get("/shoemen/style1/attached_heel", function (req, res, next) {
   const leather = req.session.detailShoe.leather;
@@ -172,9 +175,13 @@ router.get(
     const { partname, value, type } = req.params;
     // console.log(partname, value);
     let session = req.session;
-    session.detailShoe.partname = partname;
-    session.detailShoe.type = type;
-    session.detailShoe.value = value;
+    let partdetail = session.detailShoe.partname;
+    partdetail.push({
+      partname: partname,
+      type: type,
+      value: value,
+    });
+    session.detailShoe.partname = partdetail;
     console.log(session);
     // 1
     if (partname === "attached_heel") {
@@ -307,9 +314,13 @@ router.get(
     const { partname, value, type } = req.params;
     // console.log(partname, value);
     let session = req.session;
-    session.detailShoe.partname = partname;
-    session.detailShoe.type = type;
-    session.detailShoe.value = value;
+    let partdetail = session.detailShoe.partname;
+    partdetail.push({
+      partname: partname,
+      type: type,
+      value: value,
+    });
+    session.detailShoe.partname = partdetail;
     console.log(session);
     // 1
     if (partname === "middle") {
@@ -430,9 +441,13 @@ router.get(
     const { partname, value, type } = req.params;
     // console.log(partname, value);
     let session = req.session;
-    session.detailShoe.partname = partname;
-    session.detailShoe.type = type;
-    session.detailShoe.value = value;
+    let partdetail = session.detailShoe.partname;
+    partdetail.push({
+      partname: partname,
+      type: type,
+      value: value,
+    });
+    session.detailShoe.partname = partdetail;
     console.log(session);
     // 1
     if (partname === "middle") {
@@ -510,7 +525,6 @@ router.get("/shoewomen/style2/tongue", function (req, res, next) {
   });
 });
 
-
 //shoe childen style1
 router.get(
   "/save/shoekid/style1/:partname/:type/:value",
@@ -518,9 +532,13 @@ router.get(
     const { partname, value, type } = req.params;
     // console.log(partname, value);
     let session = req.session;
-    session.detailShoe.partname = partname;
-    session.detailShoe.type = type;
-    session.detailShoe.value = value;
+    let partdetail = session.detailShoe.partname;
+    partdetail.push({
+      partname: partname,
+      type: type,
+      value: value,
+    });
+    session.detailShoe.partname = partdetail;
     console.log(session);
     // 1
     if (partname === "middle") {
@@ -558,8 +576,8 @@ router.get(
     else if (partname === "attached_heel") {
       res.redirect("/shoe/shoekid/style1/edge");
     }
-     // 10
-     else if (partname === "edge") {
+    // 10
+    else if (partname === "edge") {
       res.redirect("/shoe/shoekid/style1/counter_lining");
     }
   }
@@ -646,8 +664,6 @@ router.get("/shoekid/style1/edge", function (req, res, next) {
   });
 });
 
-
-
 //shoe childen style2
 
 //get shoe style
@@ -659,6 +675,7 @@ router.get("/:shoe/:style/", function (req, res, next) {
     session.detailShoe = {
       shoe: shoe,
       style: style,
+      partname: [],
     };
     console.log(style);
     console.log(session);
@@ -691,10 +708,10 @@ router.get("/save/choose_leather/:leather", function (req, res, next) {
   const style = session.detailShoe.style;
   // console.log(session);
   if (shoe === "shoemen") {
-    res.redirect(`/shoe/${shoe}/${style}/bottom`);
+    res.redirect(`/shoe/${shoe}/${style}/foot_front`);
   } else if (shoe === "shoewomen") {
     res.redirect(`/shoe/${shoe}/${style}/middle`);
-  }else if (shoe === "shoekid") {
+  } else if (shoe === "shoekid") {
     res.redirect(`/shoe/${shoe}/${style}/foot_front`);
   }
 });

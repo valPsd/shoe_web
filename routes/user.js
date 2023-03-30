@@ -60,24 +60,22 @@ router.get('/payment', function (req, res, next) {
 router.get("/preview", function (req, res, next) {
    userID = req.session.user;
    let session = req.session;
-   const shoe = session.detailShoe.shoe;
-   const style = session.detailShoe.style;
-   console.log(shoe, style);
-   // const picNum = 'shoe2_full'
-   // const { shoe, style } = req.params
+   const shoe = session.detailShoe.partname;
+   // const style = session.detailShoe.style;
+   console.log(shoe);
    res.render("preview", { title: "Preview Product", userID: userID, shoe : shoe, style: style });
  });
 
  //men2
  router.get("/preview-men2", function (req, res, next) {
    userID = req.session.user;
-   let session = req.session;
-   const shoe = session.detailShoe.shoe;
-   const style = session.detailShoe.style;
-   console.log(shoe, style);
+   // let session = req.session;
+   // const shoe = session.detailShoe.shoe;
+   // const style = session.detailShoe.style;
+   // console.log(shoe, style);
    // const picNum = 'shoe2_full'
    // const { shoe, style } = req.params
-   res.render("preview2", { title: "Preview Product", userID: userID, shoe : shoe, style: style });
+   res.render("preview2", { title: "Preview Product", userID: userID,  });
  });
 
  //women1
