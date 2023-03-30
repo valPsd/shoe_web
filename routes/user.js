@@ -35,7 +35,7 @@ router.get('/history', function (req, res, next) {
                orderIdList.push(doc.id);
             }
          });
-         
+
          // let showOrder = orderList[0];
          // for (let i = 0; i < orderList.length; i++) {
          //    const date = new Date(orderList[i].Date, orderList[i].Time);
@@ -68,7 +68,7 @@ router.get('/status', function (req, res, next) {
                orderIdList.push(doc.id);
             }
          });
-         
+
          let showOrder = orderList[0];
          for (let i = 0; i < orderList.length; i++) {
             const date = new Date(orderList[i].Date, orderList[i].Time);
@@ -124,8 +124,25 @@ router.get('/shoes/:shoeType', function (req, res, next) {
    else {
       type = "รองเท้าเด็ก"
    }
-   req.session.shoeType = type;
-   res.render('chooseShoe', { title: type, userID: userID });
+
+   let shoeList = [];
+   db.collection("Products")
+      .get()
+      .then((querySnapshot) => {
+         querySnapshot.forEach((doc) => {
+            if (doc.data().Type == type) {
+               shoeList.push(doc.data());  
+            }
+         });
+         req.session.shoeType = type;
+         res.render('chooseShoe', { title: type, userID: userID, shoeList: shoeList });
+      })
+      .catch((error) => {
+         console.log("Error getting documents: ", error);
+         msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
+         path = 'login';
+         res.redirect('/success/' + msg + '/' + path);
+      });
 });
 
 router.get('/cart', function (req, res, next) {
@@ -297,63 +314,63 @@ router.post("/addTocart", upload.single("shoeImg"), async function (req, res, ne
 });
 
 router.get("/preview", function (req, res, next) {
-  userID = req.session.user;
-  let session = req.session;
-  const partdetail = session.detailShoe.partname;
-  res.render("preview", {
-    title: "Preview Product",
-    userID: userID,
-    partdetail: partdetail,
-  });
+   userID = req.session.user;
+   let session = req.session;
+   const partdetail = session.detailShoe.partname;
+   res.render("preview", {
+      title: "Preview Product",
+      userID: userID,
+      partdetail: partdetail,
+   });
 });
 
 //men2
 router.get("/preview-men2", function (req, res, next) {
-  userID = req.session.user;
-  let session = req.session;
-  const partdetail = session.detailShoe.partname;
-  res.render("preview2", {
-    title: "Preview Product",
-    userID: userID,
-    partdetail: partdetail,
-  });
+   userID = req.session.user;
+   let session = req.session;
+   const partdetail = session.detailShoe.partname;
+   res.render("preview2", {
+      title: "Preview Product",
+      userID: userID,
+      partdetail: partdetail,
+   });
 });
 
 //women1
 router.get("/preview-women1", function (req, res, next) {
-  userID = req.session.user;
-  let session = req.session;
-  const partdetail = session.detailShoe.partname;
-  console.log(partdetail);
-  res.render("preview3", {
-    title: "Preview Product",
-    userID: userID,
-    partdetail: partdetail,
-  });
+   userID = req.session.user;
+   let session = req.session;
+   const partdetail = session.detailShoe.partname;
+   console.log(partdetail);
+   res.render("preview3", {
+      title: "Preview Product",
+      userID: userID,
+      partdetail: partdetail,
+   });
 });
 
 //women2
 router.get("/preview-women2", function (req, res, next) {
-  userID = req.session.user;
-  let session = req.session;
-  const partdetail = session.detailShoe.partname;
-  res.render("preview4", {
-    title: "Preview Product",
-    userID: userID,
-    partdetail: partdetail,
-  });
+   userID = req.session.user;
+   let session = req.session;
+   const partdetail = session.detailShoe.partname;
+   res.render("preview4", {
+      title: "Preview Product",
+      userID: userID,
+      partdetail: partdetail,
+   });
 });
 
 //kid1
 router.get("/preview-kid", function (req, res, next) {
-  userID = req.session.user;
-  let session = req.session;
-  const partdetail = session.detailShoe.partname;
-  res.render("preview5", {
-    title: "Preview Product",
-    userID: userID,
-    partdetail: partdetail,
-  });
+   userID = req.session.user;
+   let session = req.session;
+   const partdetail = session.detailShoe.partname;
+   res.render("preview5", {
+      title: "Preview Product",
+      userID: userID,
+      partdetail: partdetail,
+   });
 });
 
 module.exports = router;

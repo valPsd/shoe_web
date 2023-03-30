@@ -80,52 +80,60 @@ router.get("/:shoe/:style/", function (req, res, next) {
   shoesDetail = [];
   let shoeName, shoePrice;
   db.collection("Products")
-      .get()
-      .then((querySnapshot) => {
-         querySnapshot.forEach((doc) => {
-            shoesDetail.push(doc.data())
-         });
-
-         if (shoe != null && style != null) {
-          if (shoe == "shoemen") {
-            shoeName = "รองเท้าผู้ชาย"
-           }else if (shoe == "shoewomen") {
-            shoeName = "รองเท้าผู้หญิง"
-           }else {
-            shoeName = "รองเท้าเด็ก"
-           }
-  
-           if (style == "style1") {
-            shoeName += " แบบที่ 1"
-           }else {
-            shoeName += " แบบที่ 2"
-           }
-  
-           shoesDetail.forEach(element => {
-            if (element.Name == shoeName) {
-              shoePrice = element.Price
-            }
-           });
-
-          let session = req.session;
-          session.productName = shoeName;
-          session.productPrice = shoePrice;
-          session.detailShoe = {
-            shoe: shoe,
-            style: style,
-            partname : []
-          };
-          console.log(style);
-          console.log(session);
-          res.redirect("/shoe/save/choose_leather/chamois");
-        }
-      })
-      .catch((error) => {
-         console.log("Error getting documents: ", error);
-         msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
-         path = 'login';
-         res.redirect('/success/' + msg + '/' + path);
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        shoesDetail.push(doc.data())
       });
+
+      if (shoe != null && style != null) {
+        if (shoe == "shoemen") {
+          shoeName = "รองเท้าผู้ชาย"
+        } else if (shoe == "shoewomen") {
+          shoeName = "รองเท้าผู้หญิง"
+        } else if (shoe == "shoekid") {
+          shoeName = "รองเท้าเด็ก"
+        } else {
+          msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
+          path = 'login';
+          res.redirect('/success/' + msg + '/' + path);
+        }
+
+        if (style == "style1") {
+          shoeName += " แบบที่ 1"
+        } else if (style == "style2") {
+          shoeName += " แบบที่ 2"
+        } else {
+          msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
+          path = 'login';
+          res.redirect('/success/' + msg + '/' + path);
+        }
+
+        shoesDetail.forEach(element => {
+          if (element.Name == shoeName) {
+            shoePrice = element.Price
+          }
+        });
+
+        let session = req.session;
+        session.productName = shoeName;
+        session.productPrice = shoePrice;
+        session.detailShoe = {
+          shoe: shoe,
+          style: style,
+          partname: []
+        };
+        console.log(style);
+        console.log(session);
+        res.redirect("/shoe/save/choose_leather/chamois");
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
+      msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
+      path = 'login';
+      res.redirect('/success/' + msg + '/' + path);
+    });
 });
 
 router.get("/shoemen/style1/attached_heel", function (req, res, next) {
