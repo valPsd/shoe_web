@@ -44,15 +44,15 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50%;
-            mix-blend-mode: normal;
+
         }
 
-        #product-shape,
+        /* #product-shape,
         #product-shape2,
         #product-shape3,
         #product-shape4 {
             fill: #DBED64;
-        }
+        } */
 
         .butt1 {
             position: fixed;
@@ -79,7 +79,7 @@
         }
 
         #background-image {
-            background: url(/images/chamois.jpg);
+            background-color: rgb(0, 0, 0);
         }
     </style>
 </head>
@@ -89,6 +89,54 @@
         <h1 class="text-center mt-4">สินค้าที่แต่งสำเร็จ</h1>
         <div id="container">
             <svg id="product-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2118 1206">
+
+                <!-- chamois -->
+                <defs>
+                    <pattern id="chamois" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/chamois.jpg" x="0" y="0" width="100%"
+                            height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- chamois black -->
+                <defs>
+                    <pattern id="chamois_black" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_black.png" x="0" y="0"
+                            width="100%" height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- brown -->
+                <defs>
+                    <pattern id="chamois_brown" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_brown.png" x="0" y="0"
+                            width="100%" height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- dark brown -->
+                <defs>
+                    <pattern id="chamois_drakBrown" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_drakBrown.png" x="0"
+                            y="0" width="100%" height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- light bronw -->
+                <defs>
+                    <pattern id="chamois_lightBrown" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_lightBrown.png" x="0"
+                            y="0" width="100%" height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- medium brown -->
+                <defs>
+                    <pattern id="chamois_mediumBrown" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_mediumBrown.png" x="0"
+                            y="0" width="100%" height="100%" />
+                    </pattern>
+                </defs>
 
                 <!-- high_top -->
                 <path id="high_top3"
@@ -146,8 +194,7 @@
                 <!-- tongue -->
                 <path id="tongue1"
                     d="M931 231L931 233C941.556 233.218 955.515 234.035 962.505 243.04C966.744 248.501 968.547 260 973.563 264.012C977.234 266.947 983.662 265.757 988 266.17C1001.1 267.417 1016.89 270.989 1029.96 268.852C1037.86 267.559 1042.72 252.17 1046.45 246C1056.7 229.045 1071.33 213.438 1088 202.698C1126.53 177.883 1169.77 189.691 1205 214.026C1216.85 222.21 1227.64 236.822 1241 242C1240.96 185.755 1183.73 149.151 1138 129.579C1126.98 124.863 1115.84 120.334 1105 115.219C1101.3 113.475 1096.56 109.858 1092.58 112.619C1084.03 118.537 1077.87 129.964 1073.24 139C1063.88 157.294 1056.21 176.244 1050.42 196C1046.66 208.84 1040.98 216.021 1033.86 227C1031.96 229.934 1030.06 236.277 1026.73 237.763C1021.33 240.167 1004.39 234.052 998 233.286C975.748 230.616 953.394 231 931 231z" />
-                <path id="tongue2"
-                    d="M999 309C1000.92 321.173 1011.13 313.511 1012 305L999 309z" />
+                <path id="tongue2" d="M999 309C1000.92 321.173 1011.13 313.511 1012 305L999 309z" />
                 <path id="tongue3"
                     d="M853 351C858.131 350.352 865.553 351.111 869.961 348.258C878.49 342.736 881.814 332.521 892 328.479C903.505 323.914 915.232 329.12 925 335L925 336C911.604 342.575 901.125 354.832 896.356 369C895.107 372.708 892.42 378.928 893.694 382.83C896.587 391.693 911.371 400.7 918 407.039C938.472 426.615 959.862 445.925 978.829 467C989.839 479.233 999.045 493.084 1009.21 506C1012.43 510.085 1017.04 518.543 1023 518.543C1031.66 518.543 1035.17 508.32 1031.29 502C1021.96 486.821 1008.22 472.839 995.961 460C985.224 448.752 974.841 437.128 963.985 426C951.211 412.905 938.159 400.025 924 388.424C916.338 382.147 905.292 376.196 901 367C917.923 363.509 933.88 362.078 951 365.084C958.366 366.378 972.763 373.388 979.787 371.223C982.707 370.323 984.02 366.515 985.138 364C987.945 357.689 997.827 341.345 991.837 335.68C965.493 310.76 928.083 313.338 896 321.13C877.137 325.711 860.522 331.154 853 351z" />
                 <path id="tongue4"
@@ -176,14 +223,12 @@
                     d="M608 608C615.578 612.93 623.277 612 632 612C640.651 612 651.761 613.064 660 610.121C671.761 605.921 683.439 596.478 695 591C691.599 579.557 679.022 581 669 581C659.772 581 647.799 579.582 639 582.728C632.138 585.181 625.642 592.096 620 596.6C615.701 600.033 610.525 603.028 608 608z" />
                 <path id="tongue16"
                     d="M544 653C553.441 653 562.794 652.651 572 655.159C576.859 656.483 582.022 661.33 587 661.193C597.423 660.907 611.58 650.554 620 645C617.994 640.734 613.981 636.155 609 635.394C604.11 634.646 597.765 637.273 593 638.349C580.466 641.181 551.489 641.369 544 653z" />
-                <path id="tongue17"
-                    d="M620 617C631.38 631.069 641.569 630.798 652 616L620 617z" />
+                <path id="tongue17" d="M620 617C631.38 631.069 641.569 630.798 652 616L620 617z" />
                 <path id="tongue18"
                     d="M1517 246L1517 248C1527.1 248.433 1540.77 249.442 1547.5 258.043C1551.78 263.506 1553.53 274.986 1558.56 279.012C1562.23 281.947 1568.66 280.757 1573 281.17C1586.6 282.464 1601.34 285.145 1615 283.941C1624.94 283.065 1631.52 262.447 1636.72 255C1650.28 235.603 1669.29 216.809 1692 208.698C1728.32 195.729 1764.27 209.424 1794 231.011C1804.37 238.538 1815.58 253.771 1828 257C1823.49 200.005 1772.72 166.114 1725 144.861C1714.05 139.986 1702.98 135.367 1692 130.576C1687.43 128.58 1682.74 124.885 1678 128.333C1670.55 133.765 1665.48 143.161 1661 151C1645.57 178.02 1642.4 212.947 1623.52 237C1620.25 241.167 1618.06 249.406 1613.73 252.292C1609.3 255.234 1591.69 249.201 1586 248.425C1563.19 245.319 1539.98 246 1517 246z" />
                 <path id="tongue19"
                     d="M1595 308L1595 309L1600 314L1602 314C1602.93 308.474 1599.87 308.058 1595 308z" />
-                <path id="tongue20"
-                    d="M1584 324C1586.33 338.733 1598.5 327.719 1599 318L1584 324z" />
+                <path id="tongue20" d="M1584 324C1586.33 338.733 1598.5 327.719 1599 318L1584 324z" />
                 <path id="tongue21"
                     d="M1439 366C1444.08 365.056 1451.33 366.342 1455.83 363.821C1461.26 360.777 1464.32 353.339 1469 349.185C1479.19 340.159 1503.59 337.73 1511 352C1496.53 355.738 1473.78 383.892 1481.14 399.999C1484.44 407.234 1493.12 413.32 1499 418.424C1508.64 426.796 1517.86 436.1 1527 445.015C1542.48 460.112 1558.64 475.135 1572.2 492C1582.16 504.391 1590.47 519.967 1602.29 530.656C1608.27 536.071 1618.34 531.164 1618.56 523C1618.83 512.621 1602.84 500.265 1596.75 493C1573.34 465.069 1547.65 438.912 1521 414.089C1513.01 406.645 1504.5 399.843 1496 392.999C1493.54 391.017 1488.06 387.759 1488.06 384.133C1488.06 378.161 1503.29 379.151 1507 378.714C1520.97 377.07 1536.4 379.729 1550 383.127C1556.32 384.706 1561.89 385.561 1566 391L1534 384.286L1494 384C1500.94 398.56 1519.72 396.202 1533 398.435C1543.19 400.148 1552.95 403.696 1563 406L1581 353C1568.29 345.922 1557.18 337.246 1543 333.036C1521.61 326.686 1500.02 331.395 1479 336.627C1470.67 338.698 1460.08 340.369 1453.09 345.649C1446.98 350.266 1441.99 359.066 1439 366z" />
                 <path id="tongue22"
@@ -200,20 +245,16 @@
                     d="M1465 491C1473.32 507.704 1483.93 510.168 1501 507C1492.63 499.16 1476.44 491.999 1465 491z" />
                 <path id="tongue28"
                     d="M1357 508C1363.47 516.704 1374.49 515.619 1384 518.749C1392.44 521.528 1400.54 530.392 1409 531.766C1413.22 532.452 1418.39 528.56 1422 526.753C1432.07 521.718 1443.27 518.534 1453 513C1430.89 474.742 1387.01 489.868 1357 508z" />
-                <path id="tongue29"
-                    d="M1384 543L1388 553L1394 547L1384 543z" />
-                <path id="tongue30"
-                    d="M1383 542C1384.08 562.89 1403.89 543.084 1383 542z" />
+                <path id="tongue29" d="M1384 543L1388 553L1394 547L1384 543z" />
+                <path id="tongue30" d="M1383 542C1384.08 562.89 1403.89 543.084 1383 542z" />
                 <path id="tongue31"
                     d="M1274 562C1285.59 565.954 1293.56 575.048 1300.25 585C1302.71 588.662 1305.07 597.655 1309.39 599.307C1313.69 600.951 1321.64 597.899 1326 596.997C1339.35 594.233 1373.51 590.914 1375.26 573C1376.32 562.074 1361.87 546.218 1354.96 539C1352.6 536.531 1349.53 532.504 1346 531.752C1340.73 530.629 1336.84 538.264 1332 539.566C1326.32 541.092 1321.5 537.416 1316 537.289C1310.54 537.163 1304.71 541.362 1300 543.756C1291.78 547.936 1278.32 553.54 1274 562z" />
                 <path id="tongue32"
                     d="M1280 606C1278.98 602.556 1277.59 599.03 1273.96 597.603C1262.64 593.159 1236.38 593.654 1225 597.728C1220.51 599.334 1216.72 603.254 1213 606.119C1209.53 608.793 1192.74 618.761 1195.75 623.786C1199.71 630.387 1220.3 627.003 1227 627C1235.08 626.997 1244.16 627.028 1251 622.409C1260.31 616.127 1270.35 611.633 1280 606z" />
                 <path id="tongue33"
                     d="M1131 668C1140.12 668 1149.16 667.786 1158 670.44C1162.62 671.826 1167.18 676.644 1172 676.524C1182.49 676.262 1197.78 665.972 1206 660C1203.25 656.174 1198.94 651.222 1194 650.404C1189.46 649.653 1183.46 652.079 1179 653.003C1167.11 655.466 1137.33 656.54 1131 668z" />
-                <path id="tongue34"
-                    d="M1205 632C1217.09 646.942 1226.98 646.638 1238 631L1205 632z" />
-                <path id="tongue35"
-                    d="M1123 689L1123 691C1127.21 692.061 1132.24 691.647 1135 688L1123 689z" />
+                <path id="tongue34" d="M1205 632C1217.09 646.942 1226.98 646.638 1238 631L1205 632z" />
+                <path id="tongue35" d="M1123 689L1123 691C1127.21 692.061 1132.24 691.647 1135 688L1123 689z" />
 
                 <!-- shoe lace -->
                 <path id="shoe_lace1"
@@ -258,8 +299,7 @@
                     d="M660 552L660 555C680.722 563.628 695.635 579.366 704.139 600C707.603 608.406 709.411 630.706 720.999 631.667C732.823 632.647 731.587 614.99 729.135 608C719.921 581.732 695.258 534.277 660 552z" />
                 <path id="shoe_lace21"
                     d="M576 609C596.67 602.92 613.208 585.943 634 578.954C649.22 573.838 669.125 577 685 577C666.596 551.415 634.541 566.482 612 577.753C604.166 581.67 595.698 585.522 589.039 591.326C583.642 596.029 579.048 602.557 576 609z" />
-                <path id="shoe_lace22"
-                    d="M620 617C631.38 631.069 641.569 630.798 652 616L620 617z" />
+                <path id="shoe_lace22" d="M620 617C631.38 631.069 641.569 630.798 652 616L620 617z" />
                 <path id="shoe_lace23"
                     d="M578 617C599.56 621.448 615.299 630.638 629.535 648C634.602 654.179 637.741 661.514 642.464 667.852C645.275 671.623 653.972 672.705 657.642 669.397C663.398 664.207 652.004 651.785 648.711 648C637.177 634.743 618.144 617.145 602 609.905C593.777 606.218 582.173 608.516 578 617z" />
                 <path id="shoe_lace24"
@@ -326,18 +366,18 @@
                     d="M1024 694.425C1017.91 695.254 1010.93 696.126 1006.23 700.532C1004.19 702.441 1002 706.619 1005.44 708.397C1013.12 712.37 1028.71 707.657 1037 707.089C1053.98 705.926 1073.16 708.036 1089 714.453C1100.1 718.948 1117.36 735.006 1130 730.106C1136.37 727.636 1137.22 720.948 1132.77 716.185C1127.47 710.516 1119.05 708.061 1112 705.424C1086.75 695.984 1050.88 690.765 1024 694.425z" />
 
                 <!-- tongue trace -->
-                <path id="tongue21"
+                <path id="tongue01"
                     d="M933 198C946.128 196.684 958.442 191.906 972 191.209C996.284 189.961 1020.12 199.887 1041 211C1049.08 192.232 1052.69 171.771 1061.31 153C1069.93 134.231 1081.75 121.021 1094 105C1048.3 95.5734 980.965 84.5554 951.229 132C938.971 151.559 938.382 176.154 933 198z" />
-                <path id="tongue22"
+                <path id="tongue02"
                     d="M926 226C948.329 226 970.743 226.564 993 228.089C1002.2 228.72 1011.86 232.008 1021 231.852C1026.85 231.752 1036.19 221.075 1035.75 215.093C1035.15 206.988 1011.36 201.893 1005 200.152C988.644 195.675 957.224 190.144 942.133 200.843C935.911 205.254 929.851 219.24 926 226z" />
-                <path id="tongue23"
+                <path id="tongue03"
                     d="M1520 213C1533.22 210.726 1545.24 206.179 1559 206.179C1584.56 206.179 1605.23 216.187 1628 226C1634 197.001 1645.53 166.826 1661.7 142C1666.99 133.871 1674.48 127.832 1680 120C1634.94 110.7 1567.89 99.5422 1538.09 146C1531.66 156.029 1528.75 167.539 1526.12 179C1523.6 189.972 1520.23 201.714 1520 213z" />
-                <path id="tongue24"
+                <path id="tongue04"
                     d="M1513 241C1535.23 241 1557.87 241.064 1580 243.17C1588.12 243.943 1602.33 249.089 1609.99 246.382C1616.14 244.207 1621.63 233.981 1623 228C1601.37 216.62 1579.41 211 1555 211C1546.83 211 1535.18 210.996 1528.21 216.005C1522.6 220.045 1515.49 234.534 1513 241z" />
 
 
                 <!-- bottom -->
-                <path id="bottom"
+                <path id="bottom8"
                     d="M882 1095C874.46 1091.62 864.176 1092.01 856 1090.87C838.677 1088.46 821.324 1086.28 804 1083.87C773.383 1079.6 742.773 1074.15 712 1071.17C676.753 1067.76 641.218 1067.41 606 1063.83C571.012 1060.27 543.219 1030 508 1024.44C483.304 1020.54 457.863 1021.21 433 1018.83C361.204 1011.97 287.714 1008.14 217 993C166.011 982.082 113.949 972.755 62 967.925C49.661 966.778 37.3957 965.738 25 965.455C20.9904 965.364 14.1021 965.086 13.2431 970.059C9.26133 993.105 32.3804 1020.77 51 1030.24C73.5385 1041.71 99.2471 1045.98 124 1050.08C152.288 1054.77 180.6 1059.18 209 1063.13C333.714 1080.47 459.383 1093.46 585 1098.96C684.026 1103.3 783.096 1095 882 1095z" />
                 <path id="bottom1"
                     d="M13 960C96.7527 960 178.535 984.875 261 995.718C316.249 1002.98 371.584 1008.55 427 1013.83C454.793 1016.48 483.463 1015.7 511 1020.61C541.068 1025.98 564.806 1046.47 593 1056.3C615.586 1064.18 646.152 1062.98 670 1064C666.542 1059.4 658.229 1058.78 653 1056.81C641.006 1052.29 629.743 1047.28 620.004 1038.71C613.764 1033.22 608.688 1026.12 604.453 1019C602.467 1015.66 601.01 1010.2 597.61 1008.03C588.657 1002.31 567.482 1005.63 557 1004.91C520.659 1002.42 484.349 999.414 448 996.911C355.63 990.549 264.338 979.209 173 964.08C135.703 957.902 98.4937 950.591 61 945.718C50.7208 944.383 40.3442 943.464 30 942.961C26.5489 942.794 21.7007 940.992 18.4298 942.604C14.0795 944.748 13.8287 955.727 13 960z" />
@@ -354,6 +394,7 @@
                 <path id="bottom7"
                     d="M2076.01 921.533C2071.31 922.685 2067.83 926.22 2063 927.334C2017.1 937.912 1966.82 938.88 1920 942.089C1840.68 947.526 1761.33 951.657 1682 957.089C1563.34 965.215 1444.82 974.758 1326 979.961C1212.63 984.925 1096.67 978.596 984 967.83C929.604 962.633 875.137 957.703 821 949.728C780.479 943.759 740.477 934.853 700 928.576C676.593 924.945 653.59 922.406 630 922.985C623.504 923.145 609.391 921.652 604.995 927.279C598.357 935.774 605.027 943.836 614 945.532C637.845 950.04 663.768 950.24 688 952.834C725.559 956.855 762.741 965.543 800 971.753C860.38 981.816 921.112 990.036 982 995.83C1052.87 1002.57 1124.88 1001.93 1196 1005.04C1245.26 1007.2 1295.71 1013.06 1345 1011.74C1384.32 1010.69 1423.76 1004.79 1463 1002.09C1560.4 995.382 1657.6 985.766 1755 979.089C1829.05 974.014 1903.08 970.56 1977 963.169C2001.37 960.732 2025.8 958.201 2050 954.246C2060.54 952.523 2073.24 951.917 2082.96 947.197C2093.65 942.003 2090.08 918.087 2076.01 921.533z" />
             </svg>
+
             <img id="background-image" src="/images/shoe1/shoe1.png" alt="">
         </div>
 
@@ -410,27 +451,562 @@
 </script>
 
 <script>
-    // if () {
-    // const overlay1 = document.getElementById("product-shape");
-    // const overlay11 = document.getElementById("product-shape2");
-    // const overlay12 = document.getElementById("product-shape3");
-    // const overlay13 = document.getElementById("product-shape4");
-    // overlay1.style.display = "none";
-    // overlay11.style.display = "none";
-    // overlay12.style.display = "none";
-    // overlay13.style.display = "none";
-    // }
-    // const overlay2 = document.getElementById("product-shape2");
-    // const overlay3 = document.getElementById("product-shape3");
-    // const overlay4 = document.getElementById("product-shape4");
+    // const partdetail = '<%- partdetail %>'
+    // console.log('<%- partdetail.length %>', 'part');
+    let color_leather = '';
+    '<% for (let i = 0; i <  partdetail.length ; i++) { %>'
+    color_leather = '';
+    console.log('<%= partdetail[i].type %>');
+    if ('<%= partdetail[i].type %>' === "leather") {
+        if ('<%= partdetail[i].value %>' === "none") {
+            color_leather = 'url(#chamois)'
+        }
+        else if ('<%= partdetail[i].value %>' === "000000") {
+            color_leather = 'url(#chamois_black)'
+        }
+        else if ('<%= partdetail[i].value %>' === "3F2C25") {
+            color_leather = 'url(#chamois_brown)'
+        }
+        else if ('<%= partdetail[i].value %>' === "572D1D") {
+            color_leather = 'url(#chamois_drakBrown)'
+        }
+        else if ('<%= partdetail[i].value %>' === "B16217") {
+            color_leather = 'url(#chamois_lightBrown)'
+        }
+        else if ('<%= partdetail[i].value %>' === "D79443") {
+            color_leather = 'url(#chamois_mediumBrown)'
+        }
 
-    // const overlay5 = document.getElementById("product-shape5");
-    // const overlay6 = document.getElementById("product-shape6");
-    // const overlay7 = document.getElementById("product-shape7");
-        const bottom = document.getElementById('bottom')
-        const bottom1 = document.getElementById('bottom4')
-        bottom.style.fill = '#DBED64'
-        bottom1.style.fill = '#DBED64'
+        console.log('<%= partdetail[i].partname %>');
+
+        if ('<%= partdetail[i].partname %>' === "high_top") {
+            const high_top = document.getElementById("high_top1");
+            const high_top1 = document.getElementById("high_top2");
+            const high_top2 = document.getElementById("high_top3");
+            high_top.style.fill = color_leather;
+            high_top1.style.fill = color_leather;
+            high_top2.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "attached_heel") {
+            const attached_heel1 = document.getElementById("attached_heel1");
+            const attached_heel2 = document.getElementById("attached_heel2");
+            const attached_heel3 = document.getElementById("attached_heel3");
+            attached_heel1.style.fill = color_leather;
+            attached_heel2.style.fill = color_leather;
+            attached_heel3.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "pull_tab") {
+            const pull_tab1 = document.getElementById("pull_tab1");
+            const pull_tab2 = document.getElementById("pull_tab2");
+            pull_tab1.style.fill = color_leather;
+            pull_tab2.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "middle") {
+            const middle1 = document.getElementById("middle1");
+            const middle2 = document.getElementById("middle2");
+            middle1.style.fill = color_leather;
+            middle2.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "edge") {
+            const edge1 = document.getElementById("edge1");
+            const edge2 = document.getElementById("edge2");
+            const edge3 = document.getElementById("edge3");
+            edge1.style.fill = color_leather;
+            edge2.style.fill = color_leather;
+            edge3.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "foot_front") {
+            const foot_front1 = document.getElementById("foot_front1");
+            const foot_front2 = document.getElementById("foot_front2");
+            foot_front1.style.fill = color_leather;
+            foot_front2.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "eyelet") {
+            const eyelet1 = document.getElementById("eyelet1");
+            const eyelet2 = document.getElementById("eyelet2");
+            const eyelet3 = document.getElementById("eyelet3");
+            const eyelet4 = document.getElementById("eyelet4");
+            eyelet1.style.fill = color_leather;
+            eyelet2.style.fill = color_leather;
+            eyelet3.style.fill = color_leather;
+            eyelet4.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "tongue") {
+            const tongue1 = document.getElementById("tongue1");
+            const tongue2 = document.getElementById("tongue2");
+            const tongue3 = document.getElementById("tongue3");
+            const tongue4 = document.getElementById("tongue4");
+            const tongue5 = document.getElementById("tongue5");
+            const tongue6 = document.getElementById("tongue6");
+            const tongue7 = document.getElementById("tongue7");
+            const tongue8 = document.getElementById("tongue8");
+            const tongue9 = document.getElementById("tongue9");
+            const tongue10 = document.getElementById("tongue10");
+            const tongue11 = document.getElementById("tongue11");
+            const tongue12 = document.getElementById("tongue12");
+            const tongue13 = document.getElementById("tongue13");
+            const tongue14 = document.getElementById("tongue14");
+            const tongue15 = document.getElementById("tongue15");
+            const tongue16 = document.getElementById("tongue16");
+            const tongue17 = document.getElementById("tongue17");
+            const tongue18 = document.getElementById("tongue18");
+            const tongue19 = document.getElementById("tongue19");
+            const tongue20 = document.getElementById("tongue20");
+            const tongue21 = document.getElementById("tongue21");
+            const tongue22 = document.getElementById("tongue22");
+            const tongue23 = document.getElementById("tongue23");
+            const tongue24 = document.getElementById("tongue24");
+            const tongue25 = document.getElementById("tongue25");
+            const tongue26 = document.getElementById("tongue26");
+            const tongue27 = document.getElementById("tongue27");
+            const tongue28 = document.getElementById("tongue28");
+            const tongue29 = document.getElementById("tongue29");
+            const tongue30 = document.getElementById("tongue30");
+            const tongue31 = document.getElementById("tongue31");
+            const tongue32 = document.getElementById("tongue32");
+            const tongue33 = document.getElementById("tongue33");
+            const tongue34 = document.getElementById("tongue34");
+            const tongue35 = document.getElementById("tongue35");
+            tongue1.style.fill = color_leather;
+            tongue2.style.fill = color_leather;
+            tongue3.style.fill = color_leather;
+            tongue4.style.fill = color_leather;
+            tongue5.style.fill = color_leather;
+            tongue6.style.fill = color_leather;
+            tongue7.style.fill = color_leather;
+            tongue8.style.fill = color_leather;
+            tongue9.style.fill = color_leather;
+            tongue10.style.fill = color_leather;
+            tongue11.style.fill = color_leather;
+            tongue12.style.fill = color_leather;
+            tongue13.style.fill = color_leather;
+            tongue15.style.fill = color_leather;
+            tongue16.style.fill = color_leather;
+            tongue17.style.fill = color_leather;
+            tongue18.style.fill = color_leather;
+            tongue19.style.fill = color_leather;
+            tongue20.style.fill = color_leather;
+            tongue21.style.fill = color_leather;
+            tongue22.style.fill = color_leather;
+            tongue23.style.fill = color_leather;
+            tongue24.style.fill = color_leather;
+            tongue25.style.fill = color_leather;
+            tongue26.style.fill = color_leather;
+            tongue27.style.fill = color_leather;
+            tongue28.style.fill = color_leather;
+            tongue29.style.fill = color_leather;
+            tongue30.style.fill = color_leather;
+            tongue31.style.fill = color_leather;
+            tongue32.style.fill = color_leather;
+            tongue33.style.fill = color_leather;
+            tongue34.style.fill = color_leather;
+            tongue35.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "tongue2") {
+            const tongue01 = document.getElementById("tongue01");
+            const tongue02 = document.getElementById("tongue02");
+            const tongue03 = document.getElementById("tongue03");
+            const tongue04 = document.getElementById("tongue04");
+            tongue01.style.fill = color_leather;
+            tongue02.style.fill = color_leather;
+            tongue03.style.fill = color_leather;
+            tongue04.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "shoe_lace") {
+            const shoe_lace1 = document.getElementById("shoe_lace1");
+            const shoe_lace2 = document.getElementById("shoe_lace2");
+            const shoe_lace3 = document.getElementById("shoe_lace3");
+            const shoe_lace4 = document.getElementById("shoe_lace4");
+            const shoe_lace5 = document.getElementById("shoe_lace5");
+            const shoe_lace6 = document.getElementById("shoe_lace6");
+            const shoe_lace7 = document.getElementById("shoe_lace7");
+            const shoe_lace8 = document.getElementById("shoe_lace8");
+            const shoe_lace9 = document.getElementById("shoe_lace9");
+            const shoe_lace10 = document.getElementById("shoe_lace10");
+            const shoe_lace11 = document.getElementById("shoe_lace11");
+            const shoe_lace12 = document.getElementById("shoe_lace12");
+            const shoe_lace13 = document.getElementById("shoe_lace13");
+            const shoe_lace14 = document.getElementById("shoe_lace14");
+            const shoe_lace15 = document.getElementById("shoe_lace15");
+            const shoe_lace16 = document.getElementById("shoe_lace16");
+            const shoe_lace17 = document.getElementById("shoe_lace17");
+            const shoe_lace18 = document.getElementById("shoe_lace18");
+            const shoe_lace19 = document.getElementById("shoe_lace19");
+            const shoe_lace20 = document.getElementById("shoe_lace20");
+            const shoe_lace21 = document.getElementById("shoe_lace21");
+            const shoe_lace22 = document.getElementById("shoe_lace22");
+            const shoe_lace23 = document.getElementById("shoe_lace23");
+            const shoe_lace24 = document.getElementById("shoe_lace24");
+            const shoe_lace25 = document.getElementById("shoe_lace25");
+            const shoe_lace26 = document.getElementById("shoe_lace26");
+            const shoe_lace27 = document.getElementById("shoe_lace27");
+            const shoe_lace28 = document.getElementById("shoe_lace28");
+            const shoe_lace29 = document.getElementById("shoe_lace29");
+            const shoe_lace30 = document.getElementById("shoe_lace30");
+            const shoe_lace31 = document.getElementById("shoe_lace31");
+            const shoe_lace32 = document.getElementById("shoe_lace32");
+            const shoe_lace33 = document.getElementById("shoe_lace33");
+            const shoe_lace34 = document.getElementById("shoe_lace34");
+            const shoe_lace35 = document.getElementById("shoe_lace35");
+            const shoe_lace36 = document.getElementById("shoe_lace36");
+            const shoe_lace37 = document.getElementById("shoe_lace37");
+            const shoe_lace38 = document.getElementById("shoe_lace38");
+            const shoe_lace39 = document.getElementById("shoe_lace39");
+            const shoe_lace40 = document.getElementById("shoe_lace40");
+            const shoe_lace41 = document.getElementById("shoe_lace41");
+            const shoe_lace42 = document.getElementById("shoe_lace42");
+            const shoe_lace43 = document.getElementById("shoe_lace43");
+            const shoe_lace44 = document.getElementById("shoe_lace44");
+            const shoe_lace45 = document.getElementById("shoe_lace45");
+            const shoe_lace46 = document.getElementById("shoe_lace46");
+            const shoe_lace47 = document.getElementById("shoe_lace47");
+            const shoe_lace48 = document.getElementById("shoe_lace48");
+            const shoe_lace49 = document.getElementById("shoe_lace49");
+            const shoe_lace50 = document.getElementById("shoe_lace50");
+            const shoe_lace51 = document.getElementById("shoe_lace51");
+            const shoe_lace52 = document.getElementById("shoe_lace52");
+            const shoe_lace53 = document.getElementById("shoe_lace53");
+            const shoe_lace54 = document.getElementById("shoe_lace54");
+            shoe_lace1.style.fill = color_leather;
+            shoe_lace2.style.fill = color_leather;
+            shoe_lace3.style.fill = color_leather;
+            shoe_lace4.style.fill = color_leather;
+            shoe_lace5.style.fill = color_leather;
+            shoe_lace6.style.fill = color_leather;
+            shoe_lace7.style.fill = color_leather;
+            shoe_lace8.style.fill = color_leather;
+            shoe_lace9.style.fill = color_leather;
+            shoe_lace10.style.fill = color_leather;
+            shoe_lace11.style.fill = color_leather;
+            shoe_lace12.style.fill = color_leather;
+            shoe_lace13.style.fill = color_leather;
+            shoe_lace14.style.fill = color_leather;
+            shoe_lace15.style.fill = color_leather;
+            shoe_lace16.style.fill = color_leather;
+            shoe_lace17.style.fill = color_leather;
+            shoe_lace18.style.fill = color_leather;
+            shoe_lace19.style.fill = color_leather;
+            shoe_lace20.style.fill = color_leather;
+            shoe_lace21.style.fill = color_leather;
+            shoe_lace22.style.fill = color_leather;
+            shoe_lace23.style.fill = color_leather;
+            shoe_lace24.style.fill = color_leather;
+            shoe_lace25.style.fill = color_leather;
+            shoe_lace26.style.fill = color_leather;
+            shoe_lace27.style.fill = color_leather;
+            shoe_lace28.style.fill = color_leather;
+            shoe_lace29.style.fill = color_leather;
+            shoe_lace30.style.fill = color_leather;
+            shoe_lace31.style.fill = color_leather;
+            shoe_lace32.style.fill = color_leather;
+            shoe_lace33.style.fill = color_leather;
+            shoe_lace34.style.fill = color_leather;
+            shoe_lace35.style.fill = color_leather;
+            shoe_lace36.style.fill = color_leather;
+            shoe_lace37.style.fill = color_leather;
+            shoe_lace38.style.fill = color_leather;
+            shoe_lace39.style.fill = color_leather;
+            shoe_lace40.style.fill = color_leather;
+            shoe_lace41.style.fill = color_leather;
+            shoe_lace42.style.fill = color_leather;
+            shoe_lace43.style.fill = color_leather;
+            shoe_lace44.style.fill = color_leather;
+            shoe_lace45.style.fill = color_leather;
+            shoe_lace46.style.fill = color_leather;
+            shoe_lace47.style.fill = color_leather;
+            shoe_lace48.style.fill = color_leather;
+            shoe_lace49.style.fill = color_leather;
+            shoe_lace50.style.fill = color_leather;
+            shoe_lace51.style.fill = color_leather;
+            shoe_lace52.style.fill = color_leather;
+            shoe_lace53.style.fill = color_leather;
+            shoe_lace54.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "bottom") {
+            const bottom1 = document.getElementById("bottom1");
+            const bottom2 = document.getElementById("bottom2");
+            const bottom3 = document.getElementById("bottom3");
+            const bottom4 = document.getElementById("bottom4");
+            const bottom5 = document.getElementById("bottom5");
+            const bottom6 = document.getElementById("bottom6");
+            const bottom7 = document.getElementById("bottom7");
+            const bottom8 = document.getElementById("bottom8");
+            bottom1.style.fill = color_leather;
+            bottom2.style.fill = color_leather;
+            bottom3.style.fill = color_leather;
+            bottom4.style.fill = color_leather;
+            bottom5.style.fill = color_leather;
+            bottom6.style.fill = color_leather;
+            bottom7.style.fill = color_leather;
+            bottom8.style.fill = color_leather;
+        }
+    }
+
+    else if ('<%= partdetail[i].type %>' === "color") {
+        const color = '#' + '<%= partdetail[i].value %>'
+        // console.log('<%= partdetail[i].value %>', 'if2 color');
+        if ('<%= partdetail[i].partname %>' === "high_top") {
+            const high_top = document.getElementById("high_top1");
+            const high_top1 = document.getElementById("high_top2");
+            const high_top2 = document.getElementById("high_top3");
+            high_top.style.fill = color;
+            high_top1.style.fill = color;
+            high_top2.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "attached_heel") {
+            const attached_heel1 = document.getElementById("attached_heel1");
+            const attached_heel2 = document.getElementById("attached_heel2");
+            const attached_heel3 = document.getElementById("attached_heel3");
+            attached_heel1.style.fill = color;
+            attached_heel2.style.fill = color;
+            attached_heel3.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "pull_tab") {
+            const pull_tab1 = document.getElementById("pull_tab1");
+            const pull_tab2 = document.getElementById("pull_tab2");
+            pull_tab1.style.fill = color;
+            pull_tab2.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "middle") {
+            const middle1 = document.getElementById("middle1");
+            const middle2 = document.getElementById("middle2");
+            middle1.style.fill = color;
+            middle2.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "edge") {
+            const edge1 = document.getElementById("edge1");
+            const edge2 = document.getElementById("edge2");
+            const edge3 = document.getElementById("edge3");
+            edge1.style.fill = color;
+            edge2.style.fill = color;
+            edge3.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "foot_front") {
+            const foot_front1 = document.getElementById("foot_front1");
+            const foot_front2 = document.getElementById("foot_front2");
+            foot_front1.style.fill = color;
+            foot_front2.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "eyelet") {
+            const eyelet1 = document.getElementById("eyelet1");
+            const eyelet2 = document.getElementById("eyelet2");
+            const eyelet3 = document.getElementById("eyelet3");
+            const eyelet4 = document.getElementById("eyelet4");
+            eyelet1.style.fill = color;
+            eyelet2.style.fill = color;
+            eyelet3.style.fill = color;
+            eyelet4.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "tongue") {
+            const tongue1 = document.getElementById("tongue1");
+            const tongue2 = document.getElementById("tongue2");
+            const tongue3 = document.getElementById("tongue3");
+            const tongue4 = document.getElementById("tongue4");
+            const tongue5 = document.getElementById("tongue5");
+            const tongue6 = document.getElementById("tongue6");
+            const tongue7 = document.getElementById("tongue7");
+            const tongue8 = document.getElementById("tongue8");
+            const tongue9 = document.getElementById("tongue9");
+            const tongue10 = document.getElementById("tongue10");
+            const tongue11 = document.getElementById("tongue11");
+            const tongue12 = document.getElementById("tongue12");
+            const tongue13 = document.getElementById("tongue13");
+            const tongue14 = document.getElementById("tongue14");
+            const tongue15 = document.getElementById("tongue15");
+            const tongue16 = document.getElementById("tongue16");
+            const tongue17 = document.getElementById("tongue17");
+            const tongue18 = document.getElementById("tongue18");
+            const tongue19 = document.getElementById("tongue19");
+            const tongue20 = document.getElementById("tongue20");
+            const tongue21 = document.getElementById("tongue21");
+            const tongue22 = document.getElementById("tongue22");
+            const tongue23 = document.getElementById("tongue23");
+            const tongue24 = document.getElementById("tongue24");
+            const tongue25 = document.getElementById("tongue25");
+            const tongue26 = document.getElementById("tongue26");
+            const tongue27 = document.getElementById("tongue27");
+            const tongue28 = document.getElementById("tongue28");
+            const tongue29 = document.getElementById("tongue29");
+            const tongue30 = document.getElementById("tongue30");
+            const tongue31 = document.getElementById("tongue31");
+            const tongue32 = document.getElementById("tongue32");
+            const tongue33 = document.getElementById("tongue33");
+            const tongue34 = document.getElementById("tongue34");
+            const tongue35 = document.getElementById("tongue35");
+            tongue1.style.fill = color;
+            tongue2.style.fill = color;
+            tongue3.style.fill = color;
+            tongue4.style.fill = color;
+            tongue5.style.fill = color;
+            tongue6.style.fill = color;
+            tongue7.style.fill = color;
+            tongue8.style.fill = color;
+            tongue9.style.fill = color;
+            tongue10.style.fill = color;
+            tongue11.style.fill = color;
+            tongue12.style.fill = color;
+            tongue13.style.fill = color;
+            tongue15.style.fill = color;
+            tongue16.style.fill = color;
+            tongue17.style.fill = color;
+            tongue18.style.fill = color;
+            tongue19.style.fill = color;
+            tongue20.style.fill = color;
+            tongue21.style.fill = color;
+            tongue22.style.fill = color;
+            tongue23.style.fill = color;
+            tongue24.style.fill = color;
+            tongue25.style.fill = color;
+            tongue26.style.fill = color;
+            tongue27.style.fill = color;
+            tongue28.style.fill = color;
+            tongue29.style.fill = color;
+            tongue30.style.fill = color;
+            tongue31.style.fill = color;
+            tongue32.style.fill = color;
+            tongue33.style.fill = color;
+            tongue34.style.fill = color;
+            tongue35.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "tongue2") {
+            const tongue01 = document.getElementById("tongue01");
+            const tongue02 = document.getElementById("tongue02");
+            const tongue03 = document.getElementById("tongue03");
+            const tongue04 = document.getElementById("tongue04");
+            tongue01.style.fill = color;
+            tongue02.style.fill = color;
+            tongue03.style.fill = color;
+            tongue04.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "shoe_lace") {
+            const shoe_lace1 = document.getElementById("shoe_lace1");
+            const shoe_lace2 = document.getElementById("shoe_lace2");
+            const shoe_lace3 = document.getElementById("shoe_lace3");
+            const shoe_lace4 = document.getElementById("shoe_lace4");
+            const shoe_lace5 = document.getElementById("shoe_lace5");
+            const shoe_lace6 = document.getElementById("shoe_lace6");
+            const shoe_lace7 = document.getElementById("shoe_lace7");
+            const shoe_lace8 = document.getElementById("shoe_lace8");
+            const shoe_lace9 = document.getElementById("shoe_lace9");
+            const shoe_lace10 = document.getElementById("shoe_lace10");
+            const shoe_lace11 = document.getElementById("shoe_lace11");
+            const shoe_lace12 = document.getElementById("shoe_lace12");
+            const shoe_lace13 = document.getElementById("shoe_lace13");
+            const shoe_lace14 = document.getElementById("shoe_lace14");
+            const shoe_lace15 = document.getElementById("shoe_lace15");
+            const shoe_lace16 = document.getElementById("shoe_lace16");
+            const shoe_lace17 = document.getElementById("shoe_lace17");
+            const shoe_lace18 = document.getElementById("shoe_lace18");
+            const shoe_lace19 = document.getElementById("shoe_lace19");
+            const shoe_lace20 = document.getElementById("shoe_lace20");
+            const shoe_lace21 = document.getElementById("shoe_lace21");
+            const shoe_lace22 = document.getElementById("shoe_lace22");
+            const shoe_lace23 = document.getElementById("shoe_lace23");
+            const shoe_lace24 = document.getElementById("shoe_lace24");
+            const shoe_lace25 = document.getElementById("shoe_lace25");
+            const shoe_lace26 = document.getElementById("shoe_lace26");
+            const shoe_lace27 = document.getElementById("shoe_lace27");
+            const shoe_lace28 = document.getElementById("shoe_lace28");
+            const shoe_lace29 = document.getElementById("shoe_lace29");
+            const shoe_lace30 = document.getElementById("shoe_lace30");
+            const shoe_lace31 = document.getElementById("shoe_lace31");
+            const shoe_lace32 = document.getElementById("shoe_lace32");
+            const shoe_lace33 = document.getElementById("shoe_lace33");
+            const shoe_lace34 = document.getElementById("shoe_lace34");
+            const shoe_lace36 = document.getElementById("shoe_lace36");
+            const shoe_lace37 = document.getElementById("shoe_lace37");
+            const shoe_lace38 = document.getElementById("shoe_lace38");
+            const shoe_lace39 = document.getElementById("shoe_lace39");
+            const shoe_lace40 = document.getElementById("shoe_lace40");
+            const shoe_lace41 = document.getElementById("shoe_lace41");
+            const shoe_lace42 = document.getElementById("shoe_lace42");
+            const shoe_lace43 = document.getElementById("shoe_lace43");
+            const shoe_lace44 = document.getElementById("shoe_lace44");
+            const shoe_lace45 = document.getElementById("shoe_lace45");
+            const shoe_lace46 = document.getElementById("shoe_lace46");
+            const shoe_lace47 = document.getElementById("shoe_lace47");
+            const shoe_lace48 = document.getElementById("shoe_lace48");
+            const shoe_lace49 = document.getElementById("shoe_lace49");
+            const shoe_lace50 = document.getElementById("shoe_lace50");
+            const shoe_lace51 = document.getElementById("shoe_lace51");
+            const shoe_lace52 = document.getElementById("shoe_lace52");
+            const shoe_lace53 = document.getElementById("shoe_lace53");
+            const shoe_lace54 = document.getElementById("shoe_lace54");
+            shoe_lace1.style.fill = color;
+            shoe_lace2.style.fill = color;
+            shoe_lace3.style.fill = color;
+            shoe_lace4.style.fill = color;
+            shoe_lace5.style.fill = color;
+            shoe_lace6.style.fill = color;
+            shoe_lace7.style.fill = color;
+            shoe_lace8.style.fill = color;
+            shoe_lace9.style.fill = color;
+            shoe_lace10.style.fill = color;
+            shoe_lace11.style.fill = color;
+            shoe_lace12.style.fill = color;
+            shoe_lace13.style.fill = color;
+            shoe_lace14.style.fill = color;
+            shoe_lace15.style.fill = color;
+            shoe_lace16.style.fill = color;
+            shoe_lace17.style.fill = color;
+            shoe_lace18.style.fill = color;
+            shoe_lace19.style.fill = color;
+            shoe_lace20.style.fill = color;
+            shoe_lace21.style.fill = color;
+            shoe_lace22.style.fill = color;
+            shoe_lace23.style.fill = color;
+            shoe_lace24.style.fill = color;
+            shoe_lace25.style.fill = color;
+            shoe_lace26.style.fill = color;
+            shoe_lace27.style.fill = color;
+            shoe_lace28.style.fill = color;
+            shoe_lace29.style.fill = color;
+            shoe_lace30.style.fill = color;
+            shoe_lace31.style.fill = color;
+            shoe_lace32.style.fill = color;
+            shoe_lace33.style.fill = color;
+            shoe_lace34.style.fill = color;
+            shoe_lace35.style.fill = color;
+            shoe_lace36.style.fill = color;
+            shoe_lace37.style.fill = color;
+            shoe_lace38.style.fill = color;
+            shoe_lace39.style.fill = color;
+            shoe_lace40.style.fill = color;
+            shoe_lace41.style.fill = color;
+            shoe_lace42.style.fill = color;
+            shoe_lace43.style.fill = color;
+            shoe_lace44.style.fill = color;
+            shoe_lace45.style.fill = color;
+            shoe_lace46.style.fill = color;
+            shoe_lace47.style.fill = color;
+            shoe_lace48.style.fill = color;
+            shoe_lace49.style.fill = color;
+            shoe_lace50.style.fill = color;
+            shoe_lace51.style.fill = color;
+            shoe_lace52.style.fill = color;
+            shoe_lace53.style.fill = color;
+            shoe_lace54.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "bottom") {
+            const bottom1 = document.getElementById("bottom1");
+            const bottom2 = document.getElementById("bottom2");
+            const bottom3 = document.getElementById("bottom3");
+            const bottom4 = document.getElementById("bottom4");
+            const bottom5 = document.getElementById("bottom5");
+            const bottom6 = document.getElementById("bottom6");
+            const bottom7 = document.getElementById("bottom7");
+            const bottom8 = document.getElementById("bottom8");
+            bottom1.style.fill = color
+            bottom2.style.fill = color
+            bottom3.style.fill = color
+            bottom4.style.fill = color
+            bottom5.style.fill = color
+            bottom6.style.fill = color
+            bottom7.style.fill = color
+            bottom8.style.fill = color
+        }
+    }
+    '<% } %>'
 
     // Thats it!
 
