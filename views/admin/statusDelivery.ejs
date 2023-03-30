@@ -26,24 +26,14 @@
                     </tr>
                 </thead>
                 <tbody style="font-size: 20px;">
+                    <% for(let i = 0; i < orderList.length; i++) { %>
                     <tr>
-                        <th scope="row"><a href="/admin/status/detail/OR1">Order No.</a></th>
-                        <td><img style="width: 150px;" src="/images/slipEx.jpg"></td>
-                        <td>Track No.</td>
-                        <td>Status</td>
+                        <th scope="row"><a href="/admin/status/detail/<%= orderIDList[i] %>"><%= orderList[i].OrderNumber %></a></th>
+                        <td><img style="width: 150px;" src="<%= orderList[i].Slip %>"></td>
+                        <td><%= orderList[i].TrackingNumber %></td>
+                        <td><%= orderList[i].Status %></td>
                     </tr>
-                    <tr>
-                        <th scope="row"><a href="">Order No.</a></th>
-                        <td><img style="width: 150px;" src="/images/slipEx.jpg"></td>
-                        <td>Track No.</td>
-                        <td>Status</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"><a href="">Order No.</a></th>
-                        <td><img style="width: 150px;" src="/images/slipEx.jpg"></td>
-                        <td>Track No.</td>
-                        <td>Status</td>
-                    </tr>
+                    <% } %>
                 </tbody>
             </table>
         </div>

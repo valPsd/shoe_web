@@ -164,8 +164,8 @@
             <div class="row" style="margin-top: 3%;">
                 <div class="col-2"></div>
                 <div class="col-3">
-                    <p style="font-size: 30px;">ชื่อรองเท้า</p>
-                    <p style="font-size: 20px;">4000 บาท</p>
+                    <p style="font-size: 30px;">รองเท้าเด็ก แบบที่ 1</p>
+                    <p style="font-size: 20px;">1000 บาท</p>
                 </div>
                 <div class="col-3">
                     <label for="size">เลือกไซส์</label>
@@ -189,6 +189,7 @@
 </body>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.js'></script>
 
+<!-- shoe capture -->
 <script>
     $('#addCart').on('click', function () {
         const child = document.getElementById("product-svg");
@@ -236,8 +237,8 @@
     // Place the SVG inside a parent div, reference it
     const container = document.getElementById("container");
 
-    // // (On resize)
-    // window.onresize = () => simulateCover(container, svg, img, 2118, 1206);
+    // (On resize)
+    window.onresize = () => simulateCover(container, svg, img, 1627, 1000);
 
     // (On load)
     simulateCover(container, svg, img, 1627, 1000);

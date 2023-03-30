@@ -13,36 +13,38 @@
 <body>
     <%- include layout/NavBar %>
         <h1 class="text-center" style="margin-top: 1%; margin-bottom: 2%;">ชำระเงิน</h1>
-        <div class="row" style="margin-top: 3%;">
-            <div class="col-6 text-center">
-                <img src="/images/promptpay-QR.jpg" style="width: 45%;">
-            </div>
-            <div class="col-6">
-                <h4>ยอดรวมทั้งหมด: 6500 บาท</h4>
-                <label for="slip" style="font-size: 20px; margin-top: 3%;">แนบหลักฐานการชำระเงิน</label>
-                <br>
-                <input class="addBtn" id="slip" type="file" style="margin-top: 1%; font-size: 16px;">
+        <form action="/user/saveOrder" method="post" enctype="multipart/form-data">
+            <div class="row" style="margin-top: 3%;">
+                <div class="col-6 text-center">
+                    <img src="/images/promptpay-QR.jpg" style="width: 45%;">
+                </div>
+                <div class="col-6">
+                    <h4>ยอดรวมทั้งหมด: <%= total %> บาท</h4>
+                    <label for="slip" style="font-size: 20px; margin-top: 3%;">แนบหลักฐานการชำระเงิน</label>
+                    <br>
+                    <input class="addBtn" id="slip" name="slip" type="file" style="margin-top: 1%; font-size: 16px;" required>
 
-                <div class="form-check" style="margin-top: 5%;">
-                    <input class="form-check-input" type="radio" name="address" id="oldAddress" value="old">
-                    <label class="form-check-label" for="oldAddress" style="font-size: 18px;">
-                        ที่อยู่เดิม
-                    </label>
+                    <div class="form-check" style="margin-top: 5%;">
+                        <input class="form-check-input" type="radio" name="address" id="oldAddress" value="old">
+                        <label class="form-check-label" for="oldAddress" style="font-size: 18px;">
+                            ที่อยู่เดิม
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="address" id="newAddress" value="new">
+                        <label class="form-check-label" for="newAddress" style="font-size: 18px;">
+                            ที่อยู่ใหม่
+                        </label>
+                    </div>
+                    <textarea cols="10" rows="5" style="width: 400px;" class="form-control input-box address-box"
+                        id="inputAddress" name="inputAddress" maxlength="100" placeholder="กรุณากรอกที่อยู่"></textarea>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="address" id="newAddress" value="new">
-                    <label class="form-check-label" for="newAddress" style="font-size: 18px;">
-                        ที่อยู่ใหม่
-                    </label>
-                </div>
-                <textarea cols="10" rows="5" style="width: 400px;" class="form-control input-box address-box"
-                    id="inputAddress" name="address" maxlength="100" placeholder="กรุณากรอกที่อยู่" required></textarea>
             </div>
-        </div>
-        <div class="text-center">
-            <button class="btn" type="button" onclick="location.href = '/user/payment'"
-                style="margin-top: 2%; background-color: darkgray; font-size: 25px; border-radius: 30px; color: white; padding: 0.3% 5%;">ยืนยัน</button>
-        </div>
+            <div class="text-center">
+                <button class="btn" type="submit"
+                    style="margin-top: 2%; background-color: darkgray; font-size: 25px; border-radius: 30px; color: white; padding: 0.3% 5%;">ยืนยัน</button>
+            </div>
+        </form>
 
         <%- include Layout/Footer %>
 
@@ -52,7 +54,7 @@
                 $("input[name='address']").change(function () {
                     if ($(this).val() === 'new') {
                         document.getElementById('inputAddress').style.display = 'block'
-                    }else{
+                    } else {
                         document.getElementById('inputAddress').style.display = 'none'
                     }
                 })

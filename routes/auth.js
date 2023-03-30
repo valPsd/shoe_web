@@ -17,20 +17,26 @@ firebaseClient.initializeApp(firebaseConfig);
 
 var serviceAccount = require("../services/kutsu-web-firebase-admin.json");
 
-const {
-   FIREBASE_PROJECT_ID = serviceAccount.project_id,
-   FIREBASE_PRIVATE_KEY = serviceAccount.private_key,
-   FIREBASE_CLIENT_EMAIL = serviceAccount.client_email,
-} = process.env
+// const {
+//    FIREBASE_PROJECT_ID = serviceAccount.project_id,
+//    FIREBASE_PRIVATE_KEY = serviceAccount.private_key,
+//    FIREBASE_CLIENT_EMAIL = serviceAccount.client_email,
+// } = process.env
+
+// firebase.initializeApp({
+//    credential: firebase.credential.cert({
+//       projectId: FIREBASE_PROJECT_ID,
+//       clientEmail: FIREBASE_CLIENT_EMAIL,
+//       privateKey: FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+//    }),
+//    storageBucket: "kutsu-web.appspot.com",
+// })
 
 firebase.initializeApp({
-   credential: firebase.credential.cert({
-      projectId: FIREBASE_PROJECT_ID,
-      clientEmail: FIREBASE_CLIENT_EMAIL,
-      privateKey: FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-   }),
+   credential: firebase.credential.cert(serviceAccount),
+   storageBucket: "kutsu-web.appspot.com",
 })
-const db = firebase.firestore();
+const db = firebaseClient.firestore();
 
 router.get('/', function (req, res, next) {
    userID = req.session.user;
@@ -75,8 +81,8 @@ router.post('/login', function (req, res) {
             res.redirect('/');
          }
          ).catch(function (error) {
-            console.log('Error creating new user:', error);
-            msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
+            console.log('Error login user:', error);
+            msg = 'อีเมล์หรือรหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง';
             path = 'login';
             res.redirect('/success/' + msg + '/' + path);
          });
@@ -85,17 +91,19 @@ router.post('/login', function (req, res) {
 
 router.post('/register', function (req, res) {
    const { name, email, birthDate, address, password } = req.body;
-   firebase.auth().createUser({
-      email: email,
-      emailVerified: false,
-      password: password,
-      displayName: name,
-      disabled: false
-   })
-      .then(async function (userRecord) {
-         console.log('Successfully created new user:', userRecord.uid);
+   // firebase.auth().createUser({
+   //    email: email,
+   //    emailVerified: false,
+   //    password: password,
+   //    displayName: name,
+   //    disabled: false
+   // })
+   firebaseClient.auth().createUserWithEmailAndPassword(email, password)
+      .then(async userRecord => {
+         console.log('Successfully created new user:', userRecord.user.uid);
+         userRecord.user.displayName = name;
          const usersDb = db.collection('users');
-         await usersDb.doc(userRecord.uid).set({
+         await usersDb.doc(userRecord.user.uid).set({
             birthDate: birthDate,
             address: address
          }).then(function () {
