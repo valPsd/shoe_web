@@ -75,6 +75,7 @@ router.get(
 
 //get shoe style
 router.get("/:shoe/:style/", function (req, res, next) {
+  userID = req.session.user;
   const { shoe, style } = req.params;
 
   shoesDetail = [];

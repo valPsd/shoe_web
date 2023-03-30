@@ -9,6 +9,7 @@ let cartIDList = [];
 let orderList = [];
 let orderIdList = [];
 let total = 0;
+let shoeList = [];
 
 const storage = firebaseAdmin.storage();
 const bucket = storage.bucket();
@@ -125,7 +126,7 @@ router.get('/shoes/:shoeType', function (req, res, next) {
       type = "รองเท้าเด็ก"
    }
 
-   let shoeList = [];
+   shoeList = [];
    db.collection("Products")
       .get()
       .then((querySnapshot) => {
@@ -268,9 +269,26 @@ router.post('/saveOrder', upload.single("slip"), async function (req, res, next)
 });
 
 router.post("/addTocart", upload.single("shoeImg"), async function (req, res, next) {
+   const leatherPriceT = 200;
+   const colorPriceT = 100;
+   let amountLeather = 0;
+   let amountColor = 0;
+   let leatherPrice = 0;
+   let colorPrice = 0;
+
    const { size } = req.body;
    userID = req.session.user;
    const session = req.session;
+   const partname = session.detailShoe.partname;
+   for (let i = 0; i < partname.length; i++) {
+      if (partname[i].type == "color") {
+         amountColor += 1;
+      }else{
+         amountLeather += 1;
+      }
+   }
+   leatherPrice += leatherPriceT*amountLeather;
+   colorPrice += colorPriceT*amountColor;
    const usersDb = db.collection('Carts');
 
    const folder = 'Modify';
@@ -290,11 +308,11 @@ router.post("/addTocart", upload.single("shoeImg"), async function (req, res, ne
       console.log("Upload Successfully!")
 
       await usersDb.add({
-         ColorCount: 10,
-         ColorPrice: 2000,
+         ColorCount: amountColor,
+         ColorPrice: colorPrice,
          Image: downloadURL,
-         LeatherCount: 10,
-         LeatherPrice: 1500,
+         LeatherCount: amountLeather,
+         LeatherPrice: leatherPrice,
          Name: session.productName,
          Price: session.productPrice,
          Size: size,
@@ -317,10 +335,18 @@ router.get("/preview", function (req, res, next) {
    userID = req.session.user;
    let session = req.session;
    const partdetail = session.detailShoe.partname;
+   let size = [];
+   for (let i = 0; i < shoeList.length; i++) {
+      if(shoeList[i].Name == session.productName){
+         size = shoeList[i].Size;
+         break;
+      }
+   }
    res.render("preview", {
       title: "Preview Product",
       userID: userID,
       partdetail: partdetail,
+      size: size
    });
 });
 
@@ -329,10 +355,17 @@ router.get("/preview-men2", function (req, res, next) {
    userID = req.session.user;
    let session = req.session;
    const partdetail = session.detailShoe.partname;
+   for (let i = 0; i < shoeList.length; i++) {
+      if(shoeList[i].Name == session.productName){
+         size = shoeList[i].Size;
+         break;
+      }
+   }
    res.render("preview2", {
       title: "Preview Product",
       userID: userID,
       partdetail: partdetail,
+      size: size
    });
 });
 
@@ -341,11 +374,17 @@ router.get("/preview-women1", function (req, res, next) {
    userID = req.session.user;
    let session = req.session;
    const partdetail = session.detailShoe.partname;
-   console.log(partdetail);
+   for (let i = 0; i < shoeList.length; i++) {
+      if(shoeList[i].Name == session.productName){
+         size = shoeList[i].Size;
+         break;
+      }
+   }
    res.render("preview3", {
       title: "Preview Product",
       userID: userID,
       partdetail: partdetail,
+      size: size
    });
 });
 
@@ -354,10 +393,17 @@ router.get("/preview-women2", function (req, res, next) {
    userID = req.session.user;
    let session = req.session;
    const partdetail = session.detailShoe.partname;
+   for (let i = 0; i < shoeList.length; i++) {
+      if(shoeList[i].Name == session.productName){
+         size = shoeList[i].Size;
+         break;
+      }
+   }
    res.render("preview4", {
       title: "Preview Product",
       userID: userID,
       partdetail: partdetail,
+      size: size
    });
 });
 
@@ -366,10 +412,17 @@ router.get("/preview-kid", function (req, res, next) {
    userID = req.session.user;
    let session = req.session;
    const partdetail = session.detailShoe.partname;
+   for (let i = 0; i < shoeList.length; i++) {
+      if(shoeList[i].Name == session.productName){
+         size = shoeList[i].Size;
+         break;
+      }
+   }
    res.render("preview5", {
       title: "Preview Product",
       userID: userID,
       partdetail: partdetail,
+      size: size
    });
 });
 

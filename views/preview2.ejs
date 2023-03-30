@@ -278,10 +278,9 @@
                     <label for="size">เลือกไซส์</label>
                     <select class="form-select" id="size" name="size"
                         style="border-radius: 10px; border: none; background-color: rgb(237, 237, 237); font-size: 18px; margin-top: 2%; width: 200px;">
-                        <option>37</option>
-                        <option>38</option>
-                        <option>39</option>
-                        <option>40</option>
+                        <% for(let i=0; i < size.length; i++) { %>
+                            <option><%= size[i] %></option>
+                        <% } %>
                     </select>
                 </div>
                 <div class="col-3">
@@ -334,18 +333,17 @@
             color_leather = 'url(#chamois_black)'
         }
         else if ('<%= partdetail[i].value %>' === "3F2C25") {
-            color_leather = 'url(#chamois_brown)'
-        }
-        else if ('<%= partdetail[i].value %>' === "572D1D") {
             color_leather = 'url(#chamois_drakBrown)'
         }
-        else if ('<%= partdetail[i].value %>' === "B16217") {
-            color_leather = 'url(#chamois_lightBrown)'
-        }
-        else if ('<%= partdetail[i].value %>' === "D79443") {
+        else if ('<%= partdetail[i].value %>' === "572D1D") {
             color_leather = 'url(#chamois_mediumBrown)'
         }
-
+        else if ('<%= partdetail[i].value %>' === "B16217") {
+            color_leather = 'url(#chamois_brown)'
+        }
+        else if ('<%= partdetail[i].value %>' === "D79443") {
+            color_leather = 'url(#chamois_lightBrown)'
+        }
         console.log('<%= partdetail[i].partname %>');
 
         if ('<%= partdetail[i].partname %>' === "attached_heel") {
