@@ -78,8 +78,7 @@
             cursor: pointer;
         }
 
-        #background-image {
-            background: url("/images/chamois.jpg");
+        #background-image {background-color: black;
         }
     </style>
 </head>
@@ -89,6 +88,53 @@
         <h1 class="text-center mt-4">สินค้าที่แต่งสำเร็จ</h1>
         <div id="container">
             <svg id="product-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2591 1206">
+                <defs>
+                    <pattern id="chamois" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/chamois.jpg" x="0" y="0" width="100%"
+                            height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- chamois black -->
+                <defs>
+                    <pattern id="chamois_black" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_black.png" x="0" y="0"
+                            width="100%" height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- brown -->
+                <defs>
+                    <pattern id="chamois_brown" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_brown.png" x="0" y="0"
+                            width="100%" height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- dark brown -->
+                <defs>
+                    <pattern id="chamois_drakBrown" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_drakBrown.png" x="0"
+                            y="0" width="100%" height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- light bronw -->
+                <defs>
+                    <pattern id="chamois_lightBrown" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_lightBrown.png" x="0"
+                            y="0" width="100%" height="100%" />
+                    </pattern>
+                </defs>
+
+                <!-- medium brown -->
+                <defs>
+                    <pattern id="chamois_mediumBrown" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image preserveAspectRatio="xMinYMin slice" href="/images/leather/chamois_mediumBrown.png" x="0"
+                            y="0" width="100%" height="100%" />
+                    </pattern>
+                </defs>
+
                 <!-- bottom -->
                 <path id="bottom1"
                     d="M 94.5,745.5 C 94.8333,745.5 95.1667,745.5 95.5,745.5C 98.3214,747.712 101.655,748.712 105.5,748.5C 107.903,748.448 110.236,748.781 112.5,749.5C 114.78,751.223 117.447,751.889 120.5,751.5C 122.5,751.833 124.5,752.167 126.5,752.5C 128.78,754.223 131.447,754.889 134.5,754.5C 162.048,759.012 189.381,764.012 216.5,769.5C 222.589,771.236 228.922,772.236 235.5,772.5C 260.855,776.371 286.189,780.371 311.5,784.5C 314.123,786.265 317.123,786.932 320.5,786.5C 330.238,787.352 339.905,788.685 349.5,790.5C 349.918,791.222 350.584,791.722 351.5,792C 354.146,792.497 356.813,792.664 359.5,792.5C 375.883,794.555 392.216,796.888 408.5,799.5C 408.918,800.222 409.584,800.722 410.5,801C 413.146,801.497 415.813,801.664 418.5,801.5C 418.833,801.5 419.167,801.5 419.5,801.5C 423.567,803.054 427.9,803.72 432.5,803.5C 435.902,803.342 439.236,803.676 442.5,804.5C 442.918,805.222 443.584,805.722 444.5,806C 447.146,806.497 449.813,806.664 452.5,806.5C 453.167,806.5 453.833,806.5 454.5,806.5C 458.567,808.054 462.9,808.72 467.5,808.5C 470.902,808.342 474.236,808.676 477.5,809.5C 480.876,811.082 484.542,811.749 488.5,811.5C 489.833,811.5 491.167,811.5 492.5,811.5C 498.854,813.631 505.521,814.631 512.5,814.5C 522.488,815.332 532.488,815.998 542.5,816.5C 544.631,817.314 546.964,817.814 549.5,818C 565.163,818.5 580.83,818.667 596.5,818.5C 609.982,818.442 623.315,819.776 636.5,822.5C 641.114,824.83 646.114,826.164 651.5,826.5C 652.167,826.5 652.833,826.5 653.5,826.5C 656.008,828.554 659.008,829.554 662.5,829.5C 670.443,831.37 678.11,834.037 685.5,837.5C 686.287,839.104 687.62,839.771 689.5,839.5C 690.492,839.328 691.158,839.662 691.5,840.5C 692.514,841.674 693.847,842.34 695.5,842.5C 698.744,843.463 701.744,844.796 704.5,846.5C 704.973,847.906 705.973,848.573 707.5,848.5C 707.833,848.5 708.167,848.5 708.5,848.5C 708.821,850.048 709.821,850.715 711.5,850.5C 712.492,850.328 713.158,850.662 713.5,851.5C 713.973,852.906 714.973,853.573 716.5,853.5C 717.492,853.328 718.158,853.662 718.5,854.5C 719.035,856.446 720.368,857.446 722.5,857.5C 723.492,857.328 724.158,857.662 724.5,858.5C 725.733,860.796 727.733,862.13 730.5,862.5C 732.389,863.604 734.055,864.937 735.5,866.5C 735.973,867.906 736.973,868.573 738.5,868.5C 741.784,870.117 744.451,872.45 746.5,875.5C 746.973,876.906 747.973,877.573 749.5,877.5C 751.167,878.5 752.5,879.833 753.5,881.5C 754.5,883.167 755.833,884.5 757.5,885.5C 759.167,887.833 761.167,889.833 763.5,891.5C 764.167,891.5 764.5,891.833 764.5,892.5C 765.5,894.167 766.833,895.5 768.5,896.5C 769.5,896.833 770.167,897.5 770.5,898.5C 770.738,900.404 771.738,901.738 773.5,902.5C 774.5,902.833 775.167,903.5 775.5,904.5C 775.738,906.404 776.738,907.738 778.5,908.5C 779.08,910.749 780.413,912.415 782.5,913.5C 782.738,915.404 783.738,916.738 785.5,917.5C 785.427,919.027 786.094,920.027 787.5,920.5C 787.427,922.027 788.094,923.027 789.5,923.5C 789.427,925.027 790.094,926.027 791.5,926.5C 791.427,928.027 792.094,929.027 793.5,929.5C 794.674,930.514 795.34,931.847 795.5,933.5C 795.427,935.027 796.094,936.027 797.5,936.5C 798.674,937.514 799.34,938.847 799.5,940.5C 799.427,942.027 800.094,943.027 801.5,943.5C 801.5,943.833 801.5,944.167 801.5,944.5C 801.427,946.027 802.094,947.027 803.5,947.5C 806.018,951.877 808.018,956.544 809.5,961.5C 809.166,964.491 810.166,966.824 812.5,968.5C 812.5,968.833 812.5,969.167 812.5,969.5C 812.12,971.698 812.787,973.365 814.5,974.5C 815.434,975.568 815.768,976.901 815.5,978.5C 815.12,980.698 815.787,982.365 817.5,983.5C 817.5,983.833 817.5,984.167 817.5,984.5C 817.259,986.898 817.926,988.898 819.5,990.5C 820.301,992.042 820.634,993.708 820.5,995.5C 820.5,996.833 820.5,998.167 820.5,999.5C 816.298,999.183 812.298,999.517 808.5,1000.5C 766.832,998.53 725.166,996.53 683.5,994.5C 682.048,993.698 680.382,993.198 678.5,993C 672.175,992.5 665.842,992.334 659.5,992.5C 618.148,990.749 576.815,988.582 535.5,986C 493.553,979.977 451.886,972.477 410.5,963.5C 408.162,961.96 405.495,961.294 402.5,961.5C 395.394,960.679 388.394,959.345 381.5,957.5C 379.162,955.96 376.495,955.294 373.5,955.5C 362.033,953.673 350.699,951.34 339.5,948.5C 337.162,946.96 334.495,946.294 331.5,946.5C 323.086,945.217 314.753,943.551 306.5,941.5C 304.562,939.837 302.228,939.171 299.5,939.5C 296.061,939.212 292.728,938.546 289.5,937.5C 287.162,935.96 284.495,935.294 281.5,935.5C 275.044,934.635 268.71,933.302 262.5,931.5C 260.162,929.96 257.495,929.294 254.5,929.5C 248.087,928.418 241.754,927.084 235.5,925.5C 233.562,923.837 231.228,923.171 228.5,923.5C 216.844,921.706 205.51,919.039 194.5,915.5C 190.841,913.658 186.841,912.658 182.5,912.5C 177.38,911.969 172.38,910.969 167.5,909.5C 165.898,907.926 163.898,907.259 161.5,907.5C 158.061,907.212 154.728,906.546 151.5,905.5C 149.562,903.837 147.228,903.171 144.5,903.5C 144.167,903.5 143.833,903.5 143.5,903.5C 141.898,901.926 139.898,901.259 137.5,901.5C 135.435,901.483 133.435,901.15 131.5,900.5C 129.562,898.837 127.228,898.171 124.5,898.5C 124.167,898.5 123.833,898.5 123.5,898.5C 121.898,896.926 119.898,896.259 117.5,896.5C 113.035,895.967 108.702,894.967 104.5,893.5C 101.916,891.528 98.9164,890.528 95.5,890.5C 91.0352,889.967 86.7019,888.967 82.5,887.5C 79.9164,885.528 76.9164,884.528 73.5,884.5C 71.1617,882.96 68.4951,882.294 65.5,882.5C 63.8984,880.926 61.8984,880.259 59.5,880.5C 57.7857,879.262 55.7857,878.595 53.5,878.5C 53.4283,867.817 53.7616,857.15 54.5,846.5C 54.5,846.167 54.5,845.833 54.5,845.5C 55.9034,842.091 56.5701,838.425 56.5,834.5C 57.2317,828.906 58.565,823.573 60.5,818.5C 61.9238,816.485 62.5905,814.152 62.5,811.5C 62.5,811.167 62.5,810.833 62.5,810.5C 64.2132,809.365 64.8799,807.698 64.5,805.5C 65.9238,803.485 66.5905,801.152 66.5,798.5C 66.2627,797.209 66.596,796.209 67.5,795.5C 69.2132,794.365 69.8799,792.698 69.5,790.5C 69.5,790.167 69.5,789.833 69.5,789.5C 71.2132,788.365 71.8799,786.698 71.5,784.5C 73.2132,783.365 73.8799,781.698 73.5,779.5C 75.9893,772.528 78.9893,765.861 82.5,759.5C 84.4077,758.514 85.4077,756.848 85.5,754.5C 85.9925,752.181 86.9925,750.181 88.5,748.5C 89.5,748.167 90.1667,747.5 90.5,746.5C 91.7079,745.766 93.0413,745.433 94.5,745.5 Z" />
@@ -301,13 +347,351 @@
 </script>
 
 <script>
-    // const overlay2 = document.getElementById("product-shape2");
-    // const overlay3 = document.getElementById("product-shape3");
-    // const overlay4 = document.getElementById("product-shape4");
+    let color_leather = '';
+    '<% for (let i = 0; i <  partdetail.length ; i++) { %>'
+    color_leather = '';
+    if ('<%= partdetail[i].type %>' === "leather") {
+        if ('<%= partdetail[i].value %>' === "none") {
+            color_leather = 'url(#chamois)'
+        }
+        else if ('<%= partdetail[i].value %>' === "000000") {
+            color_leather = 'url(#chamois_black)'
+        }
+        else if ('<%= partdetail[i].value %>' === "3F2C25") {
+            color_leather = 'url(#chamois_brown)'
+        }
+        else if ('<%= partdetail[i].value %>' === "572D1D") {
+            color_leather = 'url(#chamois_drakBrown)'
+        }
+        else if ('<%= partdetail[i].value %>' === "B16217") {
+            color_leather = 'url(#chamois_lightBrown)'
+        }
+        else if ('<%= partdetail[i].value %>' === "D79443") {
+            color_leather = 'url(#chamois_mediumBrown)'
+        }
 
-    // const overlay5 = document.getElementById("product-shape5");
-    // const overlay6 = document.getElementById("product-shape6");
-    // const overlay7 = document.getElementById("product-shape7");
+         if ('<%= partdetail[i].partname %>' === "pull_tab") {
+            const pull_tab = document.getElementById("pull_tab");
+            pull_tab.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "counter_lining") {
+            const counter_lining1 = document.getElementById("counter_lining1");
+            const counter_lining2 = document.getElementById("counter_lining2");
+            const counter_lining3 = document.getElementById("counter_lining3");
+            const counter_lining4 = document.getElementById("counter_lining4");
+            counter_lining1.style.fill = color_leather;
+            counter_lining2.style.fill = color_leather;
+            counter_lining3.style.fill = color_leather;
+            counter_lining4.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "middle") {
+            const middle1 = document.getElementById("middle1");
+            const middle2 = document.getElementById("middle2");
+            middle1.style.fill = color_leather;
+            middle2.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "foot_front") {
+            const foot_front1 = document.getElementById("foot_front1");
+            const foot_front2 = document.getElementById("foot_front2");
+            foot_front1.style.fill = color_leather;
+            foot_front2.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "eyelet") {
+            const eyelet1 = document.getElementById("eyelet1");
+            const eyelet2 = document.getElementById("eyelet2");
+            const eyelet3 = document.getElementById("eyelet3");
+            const eyelet4 = document.getElementById("eyelet4");
+            eyelet1.style.fill = color_leather;
+            eyelet2.style.fill = color_leather;
+            eyelet3.style.fill = color_leather;
+            eyelet4.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "tongue") {
+            const tongue1 = document.getElementById("tongue1");
+            const tongue2 = document.getElementById("tongue2");
+            tongue1.style.fill = color_leather;
+            tongue2.style.fill = color_leather;
+          
+        }
+        else if ('<%= partdetail[i].partname %>' === "tongue2") {
+            const tongue2_1 = document.getElementById("tongue2_1");
+            const tongue2_2 = document.getElementById("tongue2_2");
+            const tongue2_3 = document.getElementById("tongue2_3");
+            const tongue2_4 = document.getElementById("tongue2_4");
+            const tongue2_5 = document.getElementById("tongue2_5");
+            const tongue2_6 = document.getElementById("tongue2_6");
+            const tongue2_7 = document.getElementById("tongue2_7");
+            const tongue2_8 = document.getElementById("tongue2_8");
+            const tongue2_9 = document.getElementById("tongue2_9");
+            const tongue2_10 = document.getElementById("tongue2_10");
+            const tongue2_11 = document.getElementById("tongue2_11");
+            const tongue2_12 = document.getElementById("tongue2_12");
+            tongue2_1.style.fill = color_leather;
+            tongue2_2.style.fill = color_leather;
+            tongue2_3.style.fill = color_leather;
+            tongue2_4.style.fill = color_leather;
+            tongue2_5.style.fill = color_leather;
+            tongue2_6.style.fill = color_leather;
+            tongue2_7.style.fill = color_leather;
+            tongue2_8.style.fill = color_leather;
+            tongue2_9.style.fill = color_leather;
+            tongue2_10.style.fill = color_leather;
+            tongue2_11.style.fill = color_leather;
+            tongue2_12.style.fill = color_leather;
+          
+        }
+        else if ('<%= partdetail[i].partname %>' === "bottom") {
+            const bottom1 = document.getElementById("bottom1");
+            const bottom2 = document.getElementById("bottom2");
+            const bottom3 = document.getElementById("bottom3");
+            const bottom4 = document.getElementById("bottom4");
+            const bottom5 = document.getElementById("bottom5");
+            const bottom6 = document.getElementById("bottom6");
+            const bottom7 = document.getElementById("bottom7");
+            bottom1.style.fill = color_leather;
+            bottom2.style.fill = color_leather;
+            bottom3.style.fill = color_leather;
+            bottom4.style.fill = color_leather;
+            bottom5.style.fill = color_leather;
+            bottom6.style.fill = color_leather;
+            bottom7.style.fill = color_leather;
+        }
+        else if ('<%= partdetail[i].partname %>' === "shoe_lace") {
+            const shoe_lace1 = document.getElementById("shoe_lace1");
+            const shoe_lace2 = document.getElementById("shoe_lace2");
+            const shoe_lace3 = document.getElementById("shoe_lace3");
+            const shoe_lace4 = document.getElementById("shoe_lace4");
+            const shoe_lace5 = document.getElementById("shoe_lace5");
+            const shoe_lace6 = document.getElementById("shoe_lace6");
+            const shoe_lace7 = document.getElementById("shoe_lace7");
+            const shoe_lace8 = document.getElementById("shoe_lace8");
+            const shoe_lace9 = document.getElementById("shoe_lace9");
+            const shoe_lace10 = document.getElementById("shoe_lace10");
+            const shoe_lace11 = document.getElementById("shoe_lace11");
+            const shoe_lace12 = document.getElementById("shoe_lace12");
+            const shoe_lace13 = document.getElementById("shoe_lace13");
+            const shoe_lace14 = document.getElementById("shoe_lace14");
+            const shoe_lace15 = document.getElementById("shoe_lace15");
+            const shoe_lace16 = document.getElementById("shoe_lace16");
+            const shoe_lace17 = document.getElementById("shoe_lace17");
+            const shoe_lace18 = document.getElementById("shoe_lace18");
+            const shoe_lace19 = document.getElementById("shoe_lace19");
+            const shoe_lace20 = document.getElementById("shoe_lace20");
+            const shoe_lace21 = document.getElementById("shoe_lace21");
+            const shoe_lace22 = document.getElementById("shoe_lace22");
+            const shoe_lace23 = document.getElementById("shoe_lace23");
+            const shoe_lace24 = document.getElementById("shoe_lace24");
+            const shoe_lace25 = document.getElementById("shoe_lace25");
+            const shoe_lace26 = document.getElementById("shoe_lace26");
+            const shoe_lace27 = document.getElementById("shoe_lace27");
+            const shoe_lace28 = document.getElementById("shoe_lace28");
+            const shoe_lace29 = document.getElementById("shoe_lace29");
+            const shoe_lace30 = document.getElementById("shoe_lace30");
+            const shoe_lace31 = document.getElementById("shoe_lace31");
+            const shoe_lace32 = document.getElementById("shoe_lace32");
+            const shoe_lace33 = document.getElementById("shoe_lace33");
+            const shoe_lace34 = document.getElementById("shoe_lace34");
+            const shoe_lace35 = document.getElementById("shoe_lace35");
+            shoe_lace1.style.fill = color_leather;
+            shoe_lace2.style.fill = color_leather;
+            shoe_lace3.style.fill = color_leather;
+            shoe_lace4.style.fill = color_leather;
+            shoe_lace5.style.fill = color_leather;
+            shoe_lace6.style.fill = color_leather;
+            shoe_lace7.style.fill = color_leather;
+            shoe_lace8.style.fill = color_leather;
+            shoe_lace9.style.fill = color_leather;
+            shoe_lace10.style.fill = color_leather;
+            shoe_lace11.style.fill = color_leather;
+            shoe_lace12.style.fill = color_leather;
+            shoe_lace13.style.fill = color_leather;
+            shoe_lace14.style.fill = color_leather;
+            shoe_lace15.style.fill = color_leather;
+            shoe_lace16.style.fill = color_leather;
+            shoe_lace17.style.fill = color_leather;
+            shoe_lace18.style.fill = color_leather;
+            shoe_lace19.style.fill = color_leather;
+            shoe_lace20.style.fill = color_leather;
+            shoe_lace21.style.fill = color_leather;
+            shoe_lace22.style.fill = color_leather;
+            shoe_lace23.style.fill = color_leather;
+            shoe_lace24.style.fill = color_leather;
+            shoe_lace25.style.fill = color_leather;
+            shoe_lace26.style.fill = color_leather;
+            shoe_lace27.style.fill = color_leather;
+            shoe_lace28.style.fill = color_leather;
+            shoe_lace29.style.fill = color_leather;
+            shoe_lace30.style.fill = color_leather;
+            shoe_lace31.style.fill = color_leather;
+            shoe_lace32.style.fill = color_leather;
+            shoe_lace33.style.fill = color_leather;
+            shoe_lace34.style.fill = color_leather;
+            shoe_lace35.style.fill = color_leather;
+        }
+    }
+
+    else if ('<%= partdetail[i].type %>' === "color") {
+        const color = '#' + '<%= partdetail[i].value %>'
+        // console.log('<%= partdetail[i].value %>', 'if2 color');
+        if ('<%= partdetail[i].partname %>' === "pull_tab") {
+            const pull_tab = document.getElementById("pull_tab");
+            pull_tab.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "counter_lining") {
+            const counter_lining1 = document.getElementById("counter_lining1");
+            const counter_lining2 = document.getElementById("counter_lining2");
+            const counter_lining3 = document.getElementById("counter_lining3");
+            const counter_lining4 = document.getElementById("counter_lining4");
+            counter_lining1.style.fill = color;
+            counter_lining2.style.fill = color;
+            counter_lining3.style.fill = color;
+            counter_lining4.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "middle") {
+            const middle1 = document.getElementById("middle1");
+            const middle2 = document.getElementById("middle2");
+            middle1.style.fill = color;
+            middle2.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "foot_front") {
+            const foot_front1 = document.getElementById("foot_front1");
+            const foot_front2 = document.getElementById("foot_front2");
+            foot_front1.style.fill = color;
+            foot_front2.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "eyelet") {
+            const eyelet1 = document.getElementById("eyelet1");
+            const eyelet2 = document.getElementById("eyelet2");
+            const eyelet3 = document.getElementById("eyelet3");
+            const eyelet4 = document.getElementById("eyelet4");
+            eyelet1.style.fill = color;
+            eyelet2.style.fill = color;
+            eyelet3.style.fill = color;
+            eyelet4.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "tongue") {
+            const tongue1 = document.getElementById("tongue1");
+            const tongue2 = document.getElementById("tongue2");
+            tongue1.style.fill = color;
+            tongue2.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "tongue2") {
+            const tongue2_1 = document.getElementById("tongue2_1");
+            const tongue2_2 = document.getElementById("tongue2_2");
+            const tongue2_3 = document.getElementById("tongue2_3");
+            const tongue2_4 = document.getElementById("tongue2_4");
+            const tongue2_5 = document.getElementById("tongue2_5");
+            const tongue2_6 = document.getElementById("tongue2_6");
+            const tongue2_7 = document.getElementById("tongue2_7");
+            const tongue2_8 = document.getElementById("tongue2_8");
+            const tongue2_9 = document.getElementById("tongue2_9");
+            const tongue2_10 = document.getElementById("tongue2_10");
+            const tongue2_11 = document.getElementById("tongue2_11");
+            const tongue2_12 = document.getElementById("tongue2_12");
+            tongue2_1.style.fill = color;
+            tongue2_2.style.fill = color;
+            tongue2_3.style.fill = color;
+            tongue2_4.style.fill = color;
+            tongue2_5.style.fill = color;
+            tongue2_6.style.fill = color;
+            tongue2_7.style.fill = color;
+            tongue2_8.style.fill = color;
+            tongue2_9.style.fill = color;
+            tongue2_10.style.fill = color;
+            tongue2_11.style.fill = color;
+            tongue2_12.style.fill = color;
+          
+        }
+        else if ('<%= partdetail[i].partname %>' === "bottom") {
+            const bottom1 = document.getElementById("bottom1");
+            const bottom2 = document.getElementById("bottom2");
+            const bottom3 = document.getElementById("bottom3");
+            const bottom4 = document.getElementById("bottom4");
+            const bottom5 = document.getElementById("bottom5");
+            const bottom6 = document.getElementById("bottom6");
+            const bottom8 = document.getElementById("bottom8");
+            bottom1.style.fill = color;
+            bottom2.style.fill = color;
+            bottom3.style.fill = color;
+            bottom4.style.fill = color;
+            bottom5.style.fill = color;
+            bottom6.style.fill = color;
+            bottom7.style.fill = color;
+        }
+        else if ('<%= partdetail[i].partname %>' === "shoe_lace") {
+            const shoe_lace1 = document.getElementById("shoe_lace1");
+            const shoe_lace2 = document.getElementById("shoe_lace2");
+            const shoe_lace3 = document.getElementById("shoe_lace3");
+            const shoe_lace4 = document.getElementById("shoe_lace4");
+            const shoe_lace5 = document.getElementById("shoe_lace5");
+            const shoe_lace6 = document.getElementById("shoe_lace6");
+            const shoe_lace7 = document.getElementById("shoe_lace7");
+            const shoe_lace8 = document.getElementById("shoe_lace8");
+            const shoe_lace9 = document.getElementById("shoe_lace9");
+            const shoe_lace10 = document.getElementById("shoe_lace10");
+            const shoe_lace11 = document.getElementById("shoe_lace11");
+            const shoe_lace12 = document.getElementById("shoe_lace12");
+            const shoe_lace13 = document.getElementById("shoe_lace13");
+            const shoe_lace14 = document.getElementById("shoe_lace14");
+            const shoe_lace15 = document.getElementById("shoe_lace15");
+            const shoe_lace16 = document.getElementById("shoe_lace16");
+            const shoe_lace17 = document.getElementById("shoe_lace17");
+            const shoe_lace18 = document.getElementById("shoe_lace18");
+            const shoe_lace19 = document.getElementById("shoe_lace19");
+            const shoe_lace20 = document.getElementById("shoe_lace20");
+            const shoe_lace21 = document.getElementById("shoe_lace21");
+            const shoe_lace22 = document.getElementById("shoe_lace22");
+            const shoe_lace23 = document.getElementById("shoe_lace23");
+            const shoe_lace24 = document.getElementById("shoe_lace24");
+            const shoe_lace25 = document.getElementById("shoe_lace25");
+            const shoe_lace26 = document.getElementById("shoe_lace26");
+            const shoe_lace27 = document.getElementById("shoe_lace27");
+            const shoe_lace28 = document.getElementById("shoe_lace28");
+            const shoe_lace29 = document.getElementById("shoe_lace29");
+            const shoe_lace30 = document.getElementById("shoe_lace30");
+            const shoe_lace31 = document.getElementById("shoe_lace31");
+            const shoe_lace32 = document.getElementById("shoe_lace32");
+            const shoe_lace33 = document.getElementById("shoe_lace33");
+            const shoe_lace34 = document.getElementById("shoe_lace34");
+            const shoe_lace35 = document.getElementById("shoe_lace35");
+            shoe_lace1.style.fill = color;
+            shoe_lace2.style.fill = color;
+            shoe_lace3.style.fill = color;
+            shoe_lace4.style.fill = color;
+            shoe_lace5.style.fill = color;
+            shoe_lace6.style.fill = color;
+            shoe_lace7.style.fill = color;
+            shoe_lace8.style.fill = color;
+            shoe_lace9.style.fill = color;
+            shoe_lace10.style.fill = color;
+            shoe_lace11.style.fill = color;
+            shoe_lace12.style.fill = color;
+            shoe_lace13.style.fill = color;
+            shoe_lace14.style.fill = color;
+            shoe_lace15.style.fill = color;
+            shoe_lace16.style.fill = color;
+            shoe_lace17.style.fill = color;
+            shoe_lace18.style.fill = color;
+            shoe_lace19.style.fill = color;
+            shoe_lace20.style.fill = color;
+            shoe_lace21.style.fill = color;
+            shoe_lace22.style.fill = color;
+            shoe_lace23.style.fill = color;
+            shoe_lace24.style.fill = color;
+            shoe_lace25.style.fill = color;
+            shoe_lace26.style.fill = color;
+            shoe_lace27.style.fill = color;
+            shoe_lace28.style.fill = color;
+            shoe_lace29.style.fill = color;
+            shoe_lace30.style.fill = color;
+            shoe_lace31.style.fill = color;
+            shoe_lace32.style.fill = color;
+            shoe_lace33.style.fill = color;
+            shoe_lace34.style.fill = color;
+            shoe_lace35.style.fill = color;
+        }
+    }
+    '<% } %>'
 
 
     // Thats it!
