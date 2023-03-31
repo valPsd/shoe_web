@@ -51,13 +51,15 @@ router.get('/status/detail/:orderID', function (req, res, next) {
 
 router.get('/shoes', function (req, res, next) {
    let shoeList = [];
+   let shoeIDList = [];
    db.collection("Products")
       .get()
       .then((querySnapshot) => {
          querySnapshot.forEach((doc) => {
             shoeList.push(doc.data());
+            shoeIDList.push(doc.id);
          });
-         res.render('admin/allShoes', { title: 'Products', adminID: userID, shoeList: shoeList });
+         res.render('admin/allShoes', { title: 'Products', adminID: userID, shoeList: shoeList, shoeIDList: shoeIDList });
       })
       .catch((error) => {
          console.log("Error getting documents: ", error);
@@ -110,47 +112,6 @@ router.post('/saveProduct', upload.single("shoeImg"), async function (req, res, 
       });
    })
    blobStream.end(req.file.buffer);
-
-   // try {
-   //    const file = req.file;
-   //    const timestamp = Date.now();
-   //    const tempName = file.originalname.split(".")[0];
-   //    const type = file.originalname.split(".")[1];
-   //    const fileName = `${tempName}_${timestamp}.${type}`;
-   //    const imageRef = storage.child(fileName);
-   //    const metadata = {
-   //       contentType: req.file.mimetype
-   //    };
-   //    const snapshot = await imageRef.put(file.buffer, metadata);
-   //    const downloadURL = await snapshot.ref.getDownloadURL();
-
-   //    const usersDb = db.collection('Products');
-   //    await usersDb.add({
-   //       Image: downloadURL,
-   //       Name: name,
-   //       Price: price,
-   //       Detail: detail,
-   //       Type: shoeType,
-   //       Modify: modify,
-   //       Size: size,
-   //       Stock: stock
-   //    }).then(function () {
-   //       msg = 'เพิ่มสินค้าสำเร็จ';
-   //       path = 'admin shoes';
-   //       res.redirect('/success/' + msg + '/' + path);
-   //    }).catch(function (error) {
-   //       console.log('Error creating new doc:', error);
-   //       msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
-   //       path = 'admin shoes';
-   //       res.redirect('/success/' + msg + '/' + path);
-   //    });
-   // } catch (error) {
-   //    console.log(error)
-   //    msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
-   //    path = 'admin shoes';
-   //    res.redirect('/success/' + msg + '/' + path);
-   //    //res.status(400).send(error.message);
-   // }
 });
 
 router.post('/editOrder/:doc', async function (req, res, next) {
@@ -168,6 +129,22 @@ router.post('/editOrder/:doc', async function (req, res, next) {
       console.log('Error creating new user:', error);
       msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
       path = 'admin status';
+      res.redirect('/success/' + msg + '/' + path);
+   });
+})
+
+router.get('/deleteShoe/:doc', async function (req, res, next) {
+   const doc = req.params.doc;
+   await db.collection("Products").doc(doc).delete()
+   .then(function (){
+      msg = 'ทำการลบสินค้าสำเร็จ';
+      path = 'admin shoes';
+      res.redirect('/success/' + msg + '/' + path);
+   })
+   .catch((error) => {
+      console.error("Error removing document: ", error);
+      msg = 'มีข้อผิดพลาดเกิดขึ้น กรุณาลองอีกครั้ง';
+      path = 'admin shoes';
       res.redirect('/success/' + msg + '/' + path);
    });
 })

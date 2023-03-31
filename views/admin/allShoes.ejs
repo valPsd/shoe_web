@@ -39,11 +39,20 @@
                         <img src="<%= shoeList[i].Image %>" style="width: 80%;">
                         <h3 class="mt-2"><%= shoeList[i].Name %></h3>
                         <p><%= shoeList[i].Price %></p>
+                        <td><button class="btn btn-danger" type="button" onclick="deleteCart('<%= shoeIDList[i] %>')">ลบ</button></td>
                     </div>
                 <% } %>
             </div>
         </div>
         <%- include ../Layout/Footer %>
+
+        <script>
+            function deleteCart(docId) {
+                    if (confirm("ยืนยันที่จะลบสินค้าชิ้นนี้หรือไม่?")) {
+                        location.href = "/admin/deleteShoe/"+docId
+                    }
+                }
+        </script>
 </body>
 
 </html>
